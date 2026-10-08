@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #faf7f2;
+  --color-surface: #ffffff;
+  --color-foreground: #1c1a17;
+  --color-muted: #6f6a60;
+  --color-subtle: #8f887c;
+  --color-border: #e7e1d6;
+  --color-accent: #b0482f;
+  --color-accent-hover: #943a25;
+  --color-accent-soft: #f3e4dd;
+  --color-verified: #3d7a4f;
+  --color-verified-soft: #e6efe8;
+  --color-pending: #a8702a;
+  --color-pending-soft: #f3ead8;
+  --color-outdated: #b0482f;
+  --color-outdated-soft: #f6e2dc;
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-serif: Georgia, "Times New Roman", "Songti SC", "SimSun", serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--color-accent-soft);
+    color: var(--color-foreground);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+}
