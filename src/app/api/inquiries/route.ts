@@ -1,7 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { randomUUID } from "node:crypto";
 
-export const runtime = "nodejs";
 const MAX_BODY = 12_000;
 const limits: Record<string, number> = { date: 10, origin: 150, stops: 1200, passengers: 2, luggage: 200, contact: 200, notes: 1500 };
 const clean = (v: unknown, max: number) => typeof v === "string" ? v.trim().slice(0, max) : "";
@@ -21,7 +19,7 @@ export async function POST(request: NextRequest) {
   const values = Object.fromEntries(Object.entries(limits).map(([key, max]) => [key, clean(payload[key], max)]));
   const { date, origin, stops, passengers, contact } = values;
   if (payload.consent !== "yes" || !/^\d{4}-\d{2}-\d{2}$/.test(date) || !Number.isFinite(Date.parse(date)) || date < new Date().toISOString().slice(0,10) || !origin || !stops || !contact || !/^\d{1,2}$/.test(passengers) || +passengers < 1 || +passengers > 50) return NextResponse.json({ error: "Please check your date, route, passenger count and contact information." }, { status: 400 });
-  const reference = randomUUID().slice(0, 8).toUpperCase();
+  const reference = crypto.randomUUID().slice(0, 8).toUpperCase();
   const html = `<h2>Explore Shanxi inquiry ${reference}</h2><table>${Object.entries(values).map(([k,v]) => `<tr><th align="left">${safe(k)}</th><td>${safe(v)}</td></tr>`).join("")}</table><p>This is an inquiry, not a confirmed booking.</p>`;
   try {
     const result = await fetch("https://api.resend.com/emails", { method: "POST", headers: { "Authorization": `Bearer ${apiKey}`, "Content-Type": "application/json" }, body: JSON.stringify({ from, to: [to], subject: `Explore Shanxi inquiry ${reference}`, html }), signal: AbortSignal.timeout(10000) });
