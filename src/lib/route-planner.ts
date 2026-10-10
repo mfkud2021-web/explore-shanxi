@@ -1,24 +1,161 @@
-import type { RoutePlannerInput, RoutePlan, RouteStop } from "@/types";
+import { destinations } from "@/data/destinations";
+import { attractions } from "@/data/attractions";
+import { transportRoutes } from "@/data/transport-routes";
+import type {
+  AttractionCategory,
+  Destination,
+  Interest,
+  RoutePlannerInput,
+  RoutePlan,
+  RouteStop,
+} from "@/types";
 
-const STOPS: { city: string; minDays: number; highlights: string[] }[] = [
-  { city: "Datong", minDays: 2, highlights: ["Yungang Grottoes", "Hanging Temple"] },
-  { city: "Taiyuan", minDays: 1, highlights: ["Jinci Temple", "Shanxi Museum"] },
-  { city: "Pingyao", minDays: 1, highlights: ["Pingyao Ancient City"] },
-  { city: "Wutai Mountain", minDays: 2, highlights: ["Temples and mountain scenery"] },
-  { city: "Linfen", minDays: 1, highlights: ["Ancient architecture and temples"] },
-];
+// North-to-south sample corridor. The first three are on the verified
+// high-speed rail line (Beijing–Datong–Taiyuan–Pingyao–Xi'an); the last two are
+// additional Shanxi destinations without a dedicated route entry in the data.
+const CORRIDOR = ["datong", "taiyuan", "pingyao", "wutai-mountain", "linfen"] as const;
+
+// Minimum nights per stop. Derived from each destination's recommended stay.
+const MIN_DAYS: Record<(typeof CORRIDOR)[number], number> = {
+  datong: 2,
+  taiyuan: 1,
+  pingyao: 1,
+  "wutai-mountain": 2,
+  linfen: 1,
+};
+
+const destBySlug = new Map(destinations.map((d) => [d.slug, d]));
+const attractionBySlug = new Map(attractions.map((a) => [a.slug, a]));
+
+const INTEREST_LABEL: Record<Interest, string> = {
+  "ancient-architecture": "Ancient architecture",
+  "black-myth": "Black Myth: Wukong",
+  history: "History",
+  food: "Food",
+  photography: "Photography",
+  unesco: "UNESCO sites",
+};
+
+function attractionCategories(dest: Destination): AttractionCategory[] {
+  return dest.major_attractions
+    .map((slug) => attractionBySlug.get(slug)?.category)
+    .filter((c): c is AttractionCategory => c != null);
+}
+
+function matchesInterest(dest: Destination, interest: Interest): boolean {
+  const categories = attractionCategories(dest);
+  switch (interest) {
+    case "black-myth":
+      return dest.major_attractions.some(
+        (slug) => attractionBySlug.get(slug)?.black_myth_related === true,
+      );
+    case "unesco":
+      return (
+        dest.key_facts.some((f) => /unesco/i.test(f.label)) ||
+        categories.includes("unesco")
+      );
+    case "ancient-architecture":
+      return categories.some(
+        (c) =>
+          c === "ancient-architecture" || c === "temple" || c === "historic-city",
+      );
+    case "history":
+      return categories.some((c) => c === "museum" || c === "historic-city");
+    case "food":
+    case "photography":
+      return false;
+  }
+}
+
+function highlightsFor(slug: (typeof CORRIDOR)[number]): string[] {
+  const dest = destBySlug.get(slug);
+  if (!dest) return [];
+  return dest.major_attractions
+    .map((s) => attractionBySlug.get(s)?.name_en)
+    .filter((n): n is string => Boolean(n));
+}
+
+function routeDuration(from: string, to: string): string | null {
+  return (
+    transportRoutes.find((r) => r.from === from && r.to === to)
+      ?.approximate_duration ?? null
+  );
+}
+
+function entryNote(origin: RoutePlannerInput["origin"]): string | null {
+  switch (origin) {
+    case "beijing": {
+      const d = routeDuration("Beijing", "Datong");
+      return d
+        ? `Start from Beijing — Beijing–Datong high-speed rail is verified (${d}).`
+        : "Start from Beijing — Beijing–Datong high-speed rail is verified.";
+    }
+    case "xian":
+      return "Start from Xi'an — the Pingyao–Xi'an high-speed rail connects to the Shanxi corridor (verified).";
+    case "shanghai":
+      return "No verified transport route from Shanghai is included yet — the sample follows the main corridor.";
+    case "other":
+      return "No verified transport route for this starting point is included yet.";
+  }
+}
+
+function exitNote(next: RoutePlannerInput["next"]): string | null {
+  switch (next) {
+    case "xian": {
+      const d = routeDuration("Pingyao", "Xi'an");
+      return d
+        ? `Continue to Xi'an — Pingyao–Xi'an high-speed rail is verified (${d}).`
+        : "Continue to Xi'an — Pingyao–Xi'an high-speed rail is verified.";
+    }
+    case "beijing": {
+      const d = routeDuration("Beijing", "Datong");
+      return d
+        ? `Continue toward Beijing — Beijing–Datong high-speed rail is verified (${d}).`
+        : "Continue toward Beijing — Beijing–Datong high-speed rail is verified.";
+    }
+    case "other":
+      return "No verified onward route is included yet.";
+  }
+}
 
 export function buildRoute(input: RoutePlannerInput): RoutePlan {
+  const reverse = input.origin === "xian";
+  const order = reverse ? [...CORRIDOR].reverse() : [...CORRIDOR];
+
   let remaining = input.days;
   const stops: RouteStop[] = [];
-
-  for (const s of STOPS) {
+  for (const slug of order) {
     if (remaining <= 0) break;
-    if (remaining >= s.minDays) {
-      const alloc = Math.min(remaining, s.minDays);
-      stops.push({ city: s.city, days: alloc, highlights: s.highlights, note: null });
-      remaining -= alloc;
-    }
+    const minDays = MIN_DAYS[slug];
+    if (remaining < minDays) continue;
+    const dest = destBySlug.get(slug)!;
+    const matching = input.interests.filter((i) => matchesInterest(dest, i));
+    stops.push({
+      city: dest.name_en,
+      days: minDays,
+      highlights: highlightsFor(slug),
+      note: matching.length
+        ? `Matches: ${matching.map((i) => INTEREST_LABEL[i]).join(", ")}`
+        : null,
+    });
+    remaining -= minDays;
+  }
+
+  const context: string[] = [];
+  const entry = entryNote(input.origin);
+  const exit = exitNote(input.next);
+  if (entry) context.push(entry);
+  if (exit) context.push(exit);
+
+  const noData = input.interests.filter(
+    (i) => !CORRIDOR.some((slug) => matchesInterest(destBySlug.get(slug)!, i)),
+  );
+  if (noData.length) {
+    context.push(
+      `No verified recommendations are available yet for: ${noData
+        .map((i) => INTEREST_LABEL[i])
+        .join(", ")}.`,
+    );
   }
 
   return {
@@ -26,5 +163,6 @@ export function buildRoute(input: RoutePlannerInput): RoutePlan {
     total_days: input.days,
     disclaimer:
       "Sample itinerary only — check live schedules, opening times and ticket rules before travelling.",
+    contextNote: context.length ? context.join(" ") : null,
   };
 }

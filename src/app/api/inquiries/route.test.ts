@@ -120,4 +120,45 @@ describe("POST /api/inquiries", () => {
     expect(JSON.stringify(body)).not.toContain("999");
     expect(JSON.stringify(body)).not.toContain("traveler@example.com");
   });
+
+  it("returns 503 in production when anti-abuse controls are not configured", async () => {
+    vi.stubEnv("NODE_ENV", "production");
+    const res = await POST(makeRequest(VALID));
+    expect(res.status).toBe(503);
+    const body = await res.json();
+    expect(body.error).toContain("not fully configured");
+  });
+
+  it("verifies Turnstile and rate limit before sending email", async () => {
+    vi.stubEnv("TURNSTILE_SECRET_KEY", "test-secret");
+    vi.stubEnv("UPSTASH_REDIS_REST_URL", "https://upstash.example");
+    vi.stubEnv("UPSTASH_REDIS_REST_TOKEN", "upstash-token");
+    const fetchMock = vi.fn(async (url: unknown) => {
+      const u = String(url);
+      if (u.includes("/pipeline")) return new Response(JSON.stringify([{ result: 1 }, { result: 1 }]), { status: 200 });
+      if (u.includes("siteverify")) return new Response(JSON.stringify({ success: true }), { status: 200 });
+      return new Response(JSON.stringify({ id: "email-id" }), { status: 200 });
+    });
+    vi.stubGlobal("fetch", fetchMock);
+
+    const res = await POST(makeRequest({ ...VALID, "cf-turnstile-response": "captcha-token" }));
+    expect(res.status).toBe(201);
+    expect(fetchMock).toHaveBeenCalledTimes(3);
+  });
+
+  it("returns 400 when the Turnstile token is missing", async () => {
+    vi.stubEnv("TURNSTILE_SECRET_KEY", "test-secret");
+    const res = await POST(makeRequest(VALID));
+    expect(res.status).toBe(400);
+    const body = await res.json();
+    expect(body.error).toContain("security check");
+  });
+
+  it("returns 429 when the rate limit is exceeded", async () => {
+    vi.stubEnv("UPSTASH_REDIS_REST_URL", "https://upstash.example");
+    vi.stubEnv("UPSTASH_REDIS_REST_TOKEN", "upstash-token");
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(JSON.stringify([{ result: 6 }, { result: 1 }]), { status: 200 })));
+    const res = await POST(makeRequest(VALID));
+    expect(res.status).toBe(429);
+  });
 });

@@ -24,4 +24,5 @@ export interface RoutePlan {
   stops: RouteStop[];
   total_days: number;
   disclaimer: string;
+  contextNote: string | null;
 }

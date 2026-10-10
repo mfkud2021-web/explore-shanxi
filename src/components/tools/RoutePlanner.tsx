@@ -182,12 +182,24 @@ export function RoutePlanner() {
                   </span>
                   <div>
                     <p className="font-medium text-foreground">{stop.city}</p>
-                    <p className="text-subtle">{stop.highlights.join(" · ")}</p>
+                    {stop.highlights.length ? (
+                      <p className="text-subtle">{stop.highlights.join(" · ")}</p>
+                    ) : (
+                      <p className="text-subtle">
+                        Specific attractions not yet listed for this stop.
+                      </p>
+                    )}
+                    {stop.note ? (
+                      <p className="mt-1 text-xs text-accent">{stop.note}</p>
+                    ) : null}
                   </div>
                 </li>
               ))}
             </ol>
           )}
+          {plan.contextNote ? (
+            <p className="mt-4 text-xs text-subtle">{plan.contextNote}</p>
+          ) : null}
           <p className="mt-4 text-xs text-subtle">{plan.disclaimer}</p>
         </div>
       ) : null}

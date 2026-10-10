@@ -1,6 +1,9 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import Script from "next/script";
+
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
 export function InquiryForm() {
   const [status, setStatus] = useState("");
@@ -40,6 +43,12 @@ export function InquiryForm() {
     <label className="block text-sm font-medium">Other details (optional) <textarea className={field} name="notes" maxLength={1500} rows={3}/></label>
     <div className="hidden" aria-hidden="true"><label>Website <input name="website" tabIndex={-1} autoComplete="off"/></label></div>
     <label className="flex items-start gap-3 text-sm text-muted"><input type="checkbox" name="consent" value="yes" required className="mt-1" /> <span>I have read the <a href="/privacy" className="underline">privacy notice</a> and agree to share the details I choose to send for responding to this inquiry.</span></label>
+    {TURNSTILE_SITE_KEY ? (
+      <>
+        <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="afterInteractive" />
+        <div className="cf-turnstile" data-sitekey={TURNSTILE_SITE_KEY} />
+      </>
+    ) : null}
     <button type="submit" disabled={sending} className="rounded-lg bg-accent px-6 py-3 font-semibold text-white hover:bg-accent-hover">{sending ? "Sending…" : "Send inquiry"}</button>
     {status && <p role="status" className="rounded-lg bg-accent-soft p-3 text-sm">{status}</p>}
   </form>;
