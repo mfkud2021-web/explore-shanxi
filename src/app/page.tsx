@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { destinations } from "@/data/destinations";
 import { travelEssentials } from "@/data/travel-essentials";
@@ -5,6 +6,25 @@ import { DestinationCard } from "@/components/destination/DestinationCard";
 import { RoutePlanner } from "@/components/tools/RoutePlanner";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: { absolute: `${siteConfig.name} — ${siteConfig.tagline}` },
+  description: siteConfig.description,
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description: siteConfig.description,
+  },
+};
 
 export default function Home() {
   return (
