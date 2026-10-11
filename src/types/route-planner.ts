@@ -18,6 +18,7 @@ export interface RouteStop {
   days: number;
   highlights: string[];
   note: string | null;
+  transport: string | null;
 }
 
 export interface RoutePlan {

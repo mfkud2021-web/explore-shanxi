@@ -33,6 +33,20 @@ export function Footer() {
               official sources before travelling, as prices, hours and policies can
               change.
             </p>
+            <ul className="mt-4 space-y-2">
+              {[
+                { label: "About", href: "/about" },
+                { label: "Contact", href: "/contact" },
+                { label: "Privacy notice", href: "/privacy" },
+                { label: "Service terms", href: "/terms" },
+              ].map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className="text-sm text-muted hover:text-foreground">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 

@@ -186,11 +186,16 @@ export function RoutePlanner() {
                       <p className="text-subtle">{stop.highlights.join(" · ")}</p>
                     ) : (
                       <p className="text-subtle">
-                        Specific attractions not yet listed for this stop.
+                        No attraction guide yet — this is a transport stop.
                       </p>
                     )}
                     {stop.note ? (
                       <p className="mt-1 text-xs text-accent">{stop.note}</p>
+                    ) : null}
+                    {stop.transport ? (
+                      <p className="mt-1 text-xs text-subtle">
+                        Getting here: {stop.transport}
+                      </p>
                     ) : null}
                   </div>
                 </li>

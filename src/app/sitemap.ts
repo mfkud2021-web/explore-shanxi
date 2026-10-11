@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/black-myth-wukong",
     "/travel-essentials",
     "/private-driver",
+    "/about",
     "/contact",
     "/privacy",
     "/terms",

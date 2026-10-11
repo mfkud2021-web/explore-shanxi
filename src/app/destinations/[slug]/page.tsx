@@ -8,11 +8,12 @@ import {
 } from "@/lib/data-access";
 import { getRegion } from "@/data/regions";
 import { buildMetadata } from "@/lib/seo";
-import { breadcrumbList, touristDestination } from "@/lib/schema";
+import { breadcrumbList, touristDestination, faqPage } from "@/lib/schema";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { VerificationBadge } from "@/components/ui/VerificationBadge";
 import { SourceBlock } from "@/components/ui/SourceBlock";
+import { FaqSection } from "@/components/ui/FaqSection";
 import { formatDate, formatVerified } from "@/lib/format";
 
 export function generateStaticParams() {
@@ -55,6 +56,7 @@ export default async function DestinationPage({
           { name: destination.name_en, path: `/destinations/${destination.slug}` },
         ])}
       />
+      {destination.faq.length > 0 ? <JsonLd data={faqPage(destination.faq)} /> : null}
 
       <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 md:py-16">
         <Breadcrumb
@@ -161,6 +163,10 @@ export default async function DestinationPage({
             <p className="mt-3 text-muted">Attraction guides coming soon.</p>
           )}
         </section>
+
+        <div className="mt-10">
+          <FaqSection faqs={destination.faq} />
+        </div>
 
         <section className="mt-10">
           <h2 className="font-serif text-2xl font-semibold">Sources &amp; verification</h2>

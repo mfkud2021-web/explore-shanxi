@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { InquiryForm } from "@/components/inquiry/InquiryForm";
-export const metadata: Metadata = { title: "Private Driver & Transport Inquiries in Shanxi", description: "Plan local transport around Datong, Pingyao, Taiyuan and Mount Wutai. Request information and introductions to qualified local transport providers." };
+import { buildMetadata } from "@/lib/seo";
+export const metadata: Metadata = buildMetadata({ title: "Private Driver & Transport Inquiries in Shanxi", description: "Plan local transport around Datong, Pingyao, Taiyuan and Mount Wutai. Request information and introductions to qualified local transport providers.", path: "/private-driver" });
 export default function PrivateDriverPage() {
  return <div className="mx-auto max-w-5xl space-y-10 px-4 py-12 sm:px-6">
   <header className="space-y-4"><p className="text-sm font-semibold uppercase tracking-wider text-accent">Explore Shanxi · Local transport</p><h1 className="font-serif text-4xl font-bold sm:text-5xl">Explore Shanxi with easier local transport</h1><p className="max-w-3xl text-lg text-muted">Visiting Yungang Grottoes, Hanging Temple, Pingyao Ancient City or Mount Wutai? Tell us your route and travel date. We can help you explore options with local providers, subject to availability and qualification checks.</p><Link className="inline-block rounded-lg bg-accent px-5 py-3 font-semibold text-white" href="#inquiry">Ask about your route</Link></header>

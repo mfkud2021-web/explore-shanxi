@@ -87,4 +87,23 @@ describe("buildRoute", () => {
     const plan = buildRoute({ origin: "beijing", days: 3, next: "other", interests: [] });
     expect(plan.contextNote).toContain("No verified onward route");
   });
+
+  it("distributes remaining days so the total matches the requested length", () => {
+    const plan = buildRoute({ origin: "beijing", days: 10, next: "xian", interests: [] });
+    const sum = plan.stops.reduce((acc, s) => acc + s.days, 0);
+    expect(plan.total_days).toBe(10);
+    expect(sum).toBe(10);
+  });
+
+  it("adds verified transport hints between consecutive stops", () => {
+    const plan = buildRoute({ origin: "beijing", days: 3, next: "xian", interests: [] });
+    const taiyuan = plan.stops.find((s) => s.city === "Taiyuan");
+    expect(taiyuan?.transport).toContain("High-speed rail");
+  });
+
+  it("flags a stop with no attraction data", () => {
+    const plan = buildRoute({ origin: "beijing", days: 5, next: "xian", interests: [] });
+    const linfen = plan.stops.find((s) => s.city === "Linfen");
+    expect(linfen?.highlights).toEqual([]);
+  });
 });

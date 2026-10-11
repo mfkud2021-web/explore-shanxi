@@ -82,6 +82,18 @@ function routeDuration(from: string, to: string): string | null {
   );
 }
 
+function legTransport(fromCity: string, toCity: string): string | null {
+  const route =
+    transportRoutes.find((r) => r.from === fromCity && r.to === toCity) ??
+    transportRoutes.find((r) => r.from === toCity && r.to === fromCity);
+  if (!route) return null;
+  const reverse = route.from === toCity;
+  const duration = route.approximate_duration
+    ? ` — ${route.approximate_duration}`
+    : "";
+  return `${route.recommended_transport}${reverse ? " (reverse of a verified route)" : ""}${duration}`;
+}
+
 function entryNote(origin: RoutePlannerInput["origin"]): string | null {
   switch (origin) {
     case "beijing": {
@@ -137,8 +149,24 @@ export function buildRoute(input: RoutePlannerInput): RoutePlan {
       note: matching.length
         ? `Matches: ${matching.map((i) => INTEREST_LABEL[i]).join(", ")}`
         : null,
+      transport: null,
     });
     remaining -= minDays;
+  }
+
+  // Distribute any remaining days so the sum of stop days equals the requested length.
+  if (stops.length > 0 && remaining > 0) {
+    let i = 0;
+    while (remaining > 0) {
+      stops[i % stops.length].days += 1;
+      remaining -= 1;
+      i += 1;
+    }
+  }
+
+  // Attach verified transport hints between consecutive stops.
+  for (let i = 1; i < stops.length; i++) {
+    stops[i].transport = legTransport(stops[i - 1].city, stops[i].city);
   }
 
   const context: string[] = [];

@@ -31,7 +31,27 @@ export const destinations: Destination[] = [
       { label: "Airport", value: "Datong Yungang International Airport", verified: true },
       { label: "High-speed rail from Beijing", value: "≈1h 45m to Datong South Station", verified: true },
     ],
-    faq: [],
+    faq: [
+      {
+        question: "What are Datong's main sights?",
+        answer:
+          "The UNESCO-listed Yungang Grottoes, a 5th-century Buddhist cave-temple complex, and the Hanging Temple, a temple built into a cliff face in Hunyuan County.",
+      },
+      {
+        question: "How do I get to Datong?",
+        answer:
+          "High-speed rail from Beijing (about 1h45m to Datong South Station) and from Taiyuan; Datong Yungang International Airport also serves the city.",
+      },
+      {
+        question: "How long should I stay?",
+        answer: "2–3 days is recommended to cover the Yungang Grottoes and the Hanging Temple.",
+      },
+      {
+        question: "Do I need to book tickets in advance?",
+        answer:
+          "Both major sights use real-name reservations — see each attraction page for current ticket and booking rules.",
+      },
+    ],
     sources: [
       {
         source_name: "Datong Municipal Government (dt.gov.cn)",
@@ -77,7 +97,22 @@ export const destinations: Destination[] = [
       { label: "Airport", value: "Taiyuan Wusu International Airport (TYN)", verified: true },
       { label: "High-speed rail from Beijing", value: "≈2.5–3h to Taiyuan South Station", verified: true },
     ],
-    faq: [],
+    faq: [
+      {
+        question: "What is there to see in Taiyuan?",
+        answer:
+          "Jinci Temple, an ancient temple complex on the outskirts of the city, and the Shanxi Museum, which covers the region's history and archaeology.",
+      },
+      {
+        question: "How do I get to Taiyuan?",
+        answer:
+          "Fly into Taiyuan Wusu International Airport (TYN), or take high-speed rail from Beijing (about 2.5–3h to Taiyuan South Station).",
+      },
+      {
+        question: "How long should I stay?",
+        answer: "1–2 days is usually enough for Jinci Temple and the Shanxi Museum.",
+      },
+    ],
     sources: [
       {
         source_name: "Shanxi Provincial Government (shanxi.gov.cn)",
@@ -117,7 +152,22 @@ export const destinations: Destination[] = [
       { label: "Rail station", value: "Pingyao Gucheng Station (high-speed rail)", verified: true },
       { label: "Combo ticket", value: "125 CNY for 22 attractions (3 days)", verified: true },
     ],
-    faq: [],
+    faq: [
+      {
+        question: "Do I need a ticket to visit Pingyao?",
+        answer:
+          "Entering the walled-city streets is free; the 125 CNY combo ticket covers 22 attractions and is valid for 3 days.",
+      },
+      {
+        question: "How do I get to Pingyao?",
+        answer:
+          "Take high-speed rail to Pingyao Gucheng Station (平遥古城站) — not Pingyao Station — then a short taxi or bus to the old town.",
+      },
+      {
+        question: "How long should I stay?",
+        answer: "1–2 days; the combo ticket is valid for 3 days.",
+      },
+    ],
     sources: [
       {
         source_name: "UNESCO World Heritage Centre",
@@ -163,7 +213,22 @@ export const destinations: Destination[] = [
       { label: "Nearest HSR station", value: "Xinzhou West Station", verified: true },
       { label: "Entry ticket", value: "≈135 CNY (peak season)", verified: true },
     ],
-    faq: [],
+    faq: [
+      {
+        question: "How do I get to Wutai Mountain?",
+        answer:
+          "Travel overland from Taiyuan or Xinzhou. The nearest high-speed rail station is Xinzhou West, then a bus of about 1.5–2h.",
+      },
+      {
+        question: "Do I need to reserve in advance?",
+        answer:
+          "Yes — real-name reservation is required (book 1–5 days ahead), and private vehicles also need a reservation.",
+      },
+      {
+        question: "How long should I stay?",
+        answer: "2–3 days for the full area, or 1 day for the core temples.",
+      },
+    ],
     sources: [
       {
         source_name: "UNESCO World Heritage Centre",
@@ -208,8 +273,24 @@ export const destinations: Destination[] = [
       { label: "Rail station", value: "Linfen West Station (high-speed rail)", verified: true },
       { label: "Rail line", value: "On the Taiyuan–Xi'an high-speed rail corridor", verified: true },
       { label: "Region", value: "Southern Shanxi", verified: true },
+      { label: "Black Myth site", value: "Xiaoxitian (Xi County) — see the Black Myth guide", verified: true },
     ],
-    faq: [],
+    faq: [
+      {
+        question: "How do I get to Linfen?",
+        answer:
+          "High-speed rail on the Taiyuan–Xi'an line; the main station is Linfen West Station.",
+      },
+      {
+        question: "What is there to see nearby?",
+        answer:
+          "Linfen is a base for southern Shanxi's ancient temples. The Black Myth: Wukong site Xiaoxitian (Xi County) is in the Linfen area — see the Black Myth guide.",
+      },
+      {
+        question: "How long should I stay?",
+        answer: "2–3 days.",
+      },
+    ],
     sources: [
       {
         source_name: "Shanxi Provincial Government (shanxi.gov.cn)",
