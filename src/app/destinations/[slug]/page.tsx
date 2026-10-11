@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
@@ -14,6 +15,7 @@ import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { VerificationBadge } from "@/components/ui/VerificationBadge";
 import { SourceBlock } from "@/components/ui/SourceBlock";
 import { FaqSection } from "@/components/ui/FaqSection";
+import { ImageCredit } from "@/components/ui/ImageCredit";
 import { formatDate, formatVerified } from "@/lib/format";
 
 export function generateStaticParams() {
@@ -78,6 +80,26 @@ export default async function DestinationPage({
           </h1>
           <p className="mt-3 text-lg text-muted">{destination.tagline}</p>
         </header>
+
+        <figure className="mt-8">
+          <div className="relative aspect-[3/2] w-full overflow-hidden rounded-xl border border-border">
+            <Image
+              src={destination.hero_image.url}
+              alt={destination.hero_image.alt}
+              fill
+              priority
+              sizes="(min-width: 768px) 768px, 100vw"
+              className="object-cover"
+            />
+          </div>
+          <figcaption className="mt-2">
+            <ImageCredit
+              credit={destination.hero_image.credit}
+              source={destination.hero_image.source}
+              license={destination.hero_image.license}
+            />
+          </figcaption>
+        </figure>
 
         {destination.quick_answer ? (
           <section className="mt-10 rounded-xl border border-border bg-surface p-6">

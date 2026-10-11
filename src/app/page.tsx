@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { destinations } from "@/data/destinations";
 import { attractions } from "@/data/attractions";
@@ -95,12 +96,16 @@ export default function Home() {
             </div>
             {heroImage ? (
               <figure className="hidden md:block">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={heroImage.url}
-                  alt={heroImage.alt}
-                  className="aspect-[4/3] w-full rounded-2xl border border-border object-cover"
-                />
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-border">
+                  <Image
+                    src={heroImage.url}
+                    alt={heroImage.alt}
+                    fill
+                    priority
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
                 <figcaption className="mt-2">
                   <ImageCredit
                     credit={heroImage.credit}
@@ -140,12 +145,12 @@ export default function Home() {
                 className="group flex flex-col overflow-hidden rounded-xl border border-border bg-background"
               >
                 <div className="relative aspect-[3/2] overflow-hidden bg-accent-soft">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={a.image.url}
                     alt={a.image.alt}
-                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                    loading="lazy"
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-5">

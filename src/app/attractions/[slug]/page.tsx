@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
@@ -85,12 +86,16 @@ export default async function AttractionPage({
         </header>
 
         <figure className="mt-8">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={attraction.image.url}
-            alt={attraction.image.alt}
-            className="aspect-[3/2] w-full rounded-xl border border-border object-cover"
-          />
+          <div className="relative aspect-[3/2] w-full overflow-hidden rounded-xl border border-border">
+            <Image
+              src={attraction.image.url}
+              alt={attraction.image.alt}
+              fill
+              priority
+              sizes="(min-width: 1024px) 66vw, 100vw"
+              className="object-cover"
+            />
+          </div>
           <figcaption className="mt-2">
             <ImageCredit
               credit={attraction.image.credit}

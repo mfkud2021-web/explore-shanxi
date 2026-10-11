@@ -412,11 +412,11 @@ export const attractions: Attraction[] = [
     black_myth_related: false,
     black_myth_notes: null,
     image: {
-      url: "/images/placeholder.svg",
-      alt: "Pingyao Ancient City — image pending",
-      credit: null,
-      source: null,
-      license: null,
+      url: "/images/pingyao-ancient-city.jpg",
+      alt: "Aerial panorama of Pingyao Ancient City showing its Ming and Qing dynasty city walls and street grid",
+      credit: "Chensiyuan",
+      source: "https://commons.wikimedia.org/wiki/File:1_pingyao_ancient_city_aerial_pano_2019.jpg",
+      license: "CC BY-SA 4.0",
     },
     faq: [
       {
@@ -498,11 +498,11 @@ export const attractions: Attraction[] = [
     black_myth_related: false,
     black_myth_notes: null,
     image: {
-      url: "/images/placeholder.svg",
-      alt: "Wutai Mountain, Xinzhou — image pending",
-      credit: null,
-      source: null,
-      license: null,
+      url: "/images/wutai-mountain.jpg",
+      alt: "Temple halls and a pagoda at Wutai Mountain, one of China's Four Sacred Buddhist Mountains",
+      credit: "Popolon",
+      source: "https://commons.wikimedia.org/wiki/File:Wutai_shan_temples.jpg",
+      license: "CC BY-SA 4.0",
     },
     faq: [
       {
@@ -583,11 +583,11 @@ export const attractions: Attraction[] = [
     black_myth_notes:
       "One of the 27 Shanxi sites on the official Black Myth: Wukong list. The game's 'Small Western Paradise' chapter shares its name with this site; its main hall holds nearly 2,000 hanging sculptures (悬塑).",
     image: {
-      url: "/images/placeholder.svg",
-      alt: "Xiaoxitian Temple (小西天) in Xi County, Linfen",
-      credit: null,
-      source: null,
-      license: null,
+      url: "/images/xiaoxitian-temple.jpg",
+      alt: "The upper and lower courtyards of Xiaoxitian Temple (小西天) on Fenghuang Mountain in Xi County, Linfen",
+      credit: "三猎",
+      source: "https://commons.wikimedia.org/wiki/File:%E9%9A%B0%E5%8E%BF%E5%B0%8F%E8%A5%BF%E5%A4%A9_%E4%B8%8A%E9%99%A2%E4%B8%8B%E9%99%A2.JPG",
+      license: "CC BY-SA 4.0",
     },
     faq: [
       {
@@ -668,11 +668,11 @@ export const attractions: Attraction[] = [
     black_myth_notes:
       "One of the 27 Shanxi sites on the official Black Myth: Wukong list. Its glazed-tile Flying Rainbow Tower (飞虹塔) inspired pagoda scenes in the game.",
     image: {
-      url: "/images/placeholder.svg",
-      alt: "Guangsheng Temple (广胜寺) and the Flying Rainbow Tower in Hongdong County, Linfen",
-      credit: null,
-      source: null,
-      license: null,
+      url: "/images/guangsheng-temple.jpg",
+      alt: "The Flying Rainbow Tower and halls of Guangsheng Temple in Hongdong County, Linfen",
+      credit: "Artsxiang",
+      source: "https://commons.wikimedia.org/wiki/File:%E5%B9%BF%E8%83%9C%E5%AF%BA_03.JPG",
+      license: "CC BY-SA 3.0",
     },
     faq: [
       {
@@ -754,11 +754,11 @@ export const attractions: Attraction[] = [
     black_myth_related: false,
     black_myth_notes: null,
     image: {
-      url: "/images/placeholder.svg",
-      alt: "Hukou Waterfall on the Yellow River, Ji County, Linfen",
-      credit: null,
-      source: null,
-      license: null,
+      url: "/images/hukou-waterfall.jpg",
+      alt: "Hukou Waterfall, the largest waterfall on the Yellow River, on the Shanxi–Shaanxi border",
+      credit: "Fanghong",
+      source: "https://commons.wikimedia.org/wiki/File:Hukou_waterfall.jpg",
+      license: "CC BY-SA 4.0",
     },
     faq: [
       {
@@ -833,11 +833,11 @@ export const attractions: Attraction[] = [
     black_myth_related: false,
     black_myth_notes: null,
     image: {
-      url: "/images/placeholder.svg",
-      alt: "Yao Temple (尧庙) in central Linfen",
-      credit: null,
-      source: null,
-      license: null,
+      url: "/images/yao-temple.jpg",
+      alt: "A statue of Emperor Yao at Yao Temple in central Linfen",
+      credit: "Emdx",
+      source: "https://commons.wikimedia.org/wiki/File:J81929_Linfen_20140706-094434.58_36.05346,111.49097_TempleEmpereurYao.jpg",
+      license: "CC BY-SA 4.0",
     },
     faq: [
       {
