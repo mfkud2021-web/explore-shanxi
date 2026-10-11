@@ -1,5 +1,6 @@
 import type { Source } from "./source";
 import type { VerificationStatus } from "./verification";
+import type { FAQItem } from "./shared";
 
 export interface TransportRoute {
   slug: string;
@@ -13,6 +14,7 @@ export interface TransportRoute {
   arrival_station: string | null;
   frequency: string | null;
   notes: string[];
+  faq?: FAQItem[];
   sources: Source[];
   last_verified: string | null;
   verification_status: VerificationStatus;

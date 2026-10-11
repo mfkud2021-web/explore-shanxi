@@ -35,6 +35,23 @@ export const transportRoutes: TransportRoute[] = [
       "Some trains depart from Beijing North (北京北站), others from Qinghe (清河站) — check the departure station when booking.",
       CHECK_12306,
     ],
+    faq: [
+      {
+        question: "Which station in Beijing does the train leave from?",
+        answer:
+          "Trains to Datong depart from Beijing North (北京北站) or Qinghe (清河站), depending on the service. Check the departure station shown when you book — do not assume it is Beijing South or Beijing West.",
+      },
+      {
+        question: "How long does the train take?",
+        answer:
+          "About 2 hours; the fastest trains take about 1 hour 45 minutes to Datong South (大同南站).",
+      },
+      {
+        question: "How do I get to the Yungang Grottoes from Datong South?",
+        answer:
+          "The Yungang Grottoes are west of the city. From Datong South Station a taxi takes about 30–40 minutes; alternatively take city bus 3 or tourist bus 603 from Datong (about 40–50 minutes).",
+      },
+    ],
     sources: [RAIL_12306, CTRIP_TRAINS],
     last_verified: VERIFIED_AT,
     verification_status: "verified",

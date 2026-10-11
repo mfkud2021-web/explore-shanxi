@@ -35,6 +35,16 @@ describe("InquiryForm", () => {
     expect(screen.getByLabelText(/travel date/i)).toBeInTheDocument();
   });
 
+  it("shows an honest notice and disables submit when the service is not configured", () => {
+    render(<InquiryForm serviceConfigured={false} />);
+    expect(
+      screen.getByText(/inquiry service is not configured yet/i),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /inquiry service unavailable/i }),
+    ).toBeDisabled();
+  });
+
   it("shows a success message with a reference on successful submit", async () => {
     const fetchMock = vi.fn().mockResolvedValue(
       new Response(JSON.stringify({ reference: "ABC12345" }), {

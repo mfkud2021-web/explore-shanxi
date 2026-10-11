@@ -51,6 +51,34 @@ export default function TransportPage() {
           ))}
         </ul>
       </section>
+
+      <section className="mt-12">
+        <h2 className="font-serif text-2xl font-semibold">Planning a longer route</h2>
+        <p className="mt-3 leading-relaxed text-muted">
+          Some journeys have no single verified direct service listed here, so we
+          describe them using the verified legs you would actually take. For example,
+          there is no direct Datong → Pingyao route in our data: travel from Datong to
+          Taiyuan by{" "}
+          <Link href="/transport/datong-to-taiyuan" className="text-accent underline underline-offset-2 hover:text-accent-hover">
+            high-speed rail
+          </Link>{" "}
+          (about 1 hour 25 minutes to 2 hours), then from Taiyuan to Pingyao by{" "}
+          <Link href="/transport/taiyuan-to-pingyao" className="text-accent underline underline-offset-2 hover:text-accent-hover">
+            high-speed rail
+          </Link>{" "}
+          (about 30–40 minutes). This is a straightforward corridor with no
+          backtracking, and Pingyao sits on the same line that continues toward
+          Xi&apos;an.
+        </p>
+        <p className="mt-4 leading-relaxed text-muted">
+          For journeys that are not well served by rail — such as reaching the Hanging
+          Temple, Xiaoxitian or Hukou Waterfall — see our{" "}
+          <Link href="/private-driver" className="text-accent underline underline-offset-2 hover:text-accent-hover">
+            private driver inquiries
+          </Link>{" "}
+          page to ask about local transport options.
+        </p>
+      </section>
     </div>
   );
 }

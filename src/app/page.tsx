@@ -43,6 +43,14 @@ export default function Home() {
           url: siteConfig.url,
         }}
       />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: siteConfig.name,
+          url: siteConfig.url,
+        }}
+      />
 
       <section className="border-b border-border">
         <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20 md:py-28">

@@ -51,6 +51,11 @@ export const destinations: Destination[] = [
         answer:
           "Both major sights use real-name reservations — see each attraction page for current ticket and booking rules.",
       },
+      {
+        question: "Can I see the Yungang Grottoes and the Hanging Temple in one day?",
+        answer:
+          "It is possible but rushed. The Yungang Grottoes are about 30–40 minutes west of Datong, while the Hanging Temple is in Hunyuan County about 1 hour 20 minutes away by car. A private car or day tour with an early start is the most practical way to combine both; many travellers prefer to give each a full half-day on separate days.",
+      },
     ],
     sources: [
       {

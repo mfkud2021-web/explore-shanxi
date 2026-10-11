@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTransportRouteBySlug, getTransportRouteSlugs } from "@/lib/data-access";
 import { buildMetadata } from "@/lib/seo";
-import { breadcrumbList } from "@/lib/schema";
+import { breadcrumbList, faqPage } from "@/lib/schema";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { VerificationBadge } from "@/components/ui/VerificationBadge";
 import { VerifiedValue } from "@/components/ui/VerifiedValue";
 import { SourceBlock } from "@/components/ui/SourceBlock";
+import { FaqSection } from "@/components/ui/FaqSection";
 import { formatDate } from "@/lib/format";
 
 export function generateStaticParams() {
@@ -46,6 +47,7 @@ export default async function TransportRoutePage({
           { name: `${route.from} to ${route.to}`, path: `/transport/${route.slug}` },
         ])}
       />
+      {route.faq && route.faq.length > 0 ? <JsonLd data={faqPage(route.faq)} /> : null}
 
       <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 md:py-16">
         <Breadcrumb
@@ -127,6 +129,12 @@ export default async function TransportRoutePage({
             </dd>
           </div>
         </dl>
+
+        {route.faq && route.faq.length > 0 ? (
+          <div className="mt-12">
+            <FaqSection faqs={route.faq} />
+          </div>
+        ) : null}
       </div>
     </>
   );
