@@ -101,9 +101,37 @@ describe("buildRoute", () => {
     expect(taiyuan?.transport).toContain("High-speed rail");
   });
 
-  it("flags a stop with no attraction data", () => {
+  it("includes southern Shanxi attractions in the Linfen stop", () => {
     const plan = buildRoute({ origin: "beijing", days: 5, next: "xian", interests: [] });
     const linfen = plan.stops.find((s) => s.city === "Linfen");
-    expect(linfen?.highlights).toEqual([]);
+    expect(linfen?.highlights).toEqual([
+      "Yao Temple",
+      "Guangsheng Temple",
+      "Xiaoxitian Temple",
+      "Hukou Waterfall",
+    ]);
+  });
+
+  it("warns when a stop's attractions are spread across counties", () => {
+    const plan = buildRoute({ origin: "beijing", days: 5, next: "xian", interests: [] });
+    const linfen = plan.stops.find((s) => s.city === "Linfen");
+    expect(linfen?.note).toContain("different counties");
+  });
+
+  it("warns when a stop has pending-verification attractions", () => {
+    const plan = buildRoute({ origin: "beijing", days: 5, next: "xian", interests: [] });
+    const linfen = plan.stops.find((s) => s.city === "Linfen");
+    expect(linfen?.note).toContain("pending verification");
+  });
+
+  it("matches the photography interest to scenic areas", () => {
+    const plan = buildRoute({
+      origin: "beijing",
+      days: 7,
+      next: "xian",
+      interests: ["photography"],
+    });
+    const linfen = plan.stops.find((s) => s.city === "Linfen");
+    expect(linfen?.note).toContain("Photography");
   });
 });

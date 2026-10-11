@@ -1,6 +1,7 @@
 import type { Attraction } from "@/types";
 
 const VERIFIED_AT = "2026-10-07";
+const VERIFIED_AT_V31 = "2026-10-11";
 
 export const attractions: Attraction[] = [
   {
@@ -411,8 +412,8 @@ export const attractions: Attraction[] = [
     black_myth_related: false,
     black_myth_notes: null,
     image: {
-      url: "/images/pingyao.jpg",
-      alt: "A historic scene in Pingyao",
+      url: "/images/placeholder.svg",
+      alt: "Pingyao Ancient City — image pending",
       credit: null,
       source: null,
       license: null,
@@ -497,8 +498,8 @@ export const attractions: Attraction[] = [
     black_myth_related: false,
     black_myth_notes: null,
     image: {
-      url: "/images/wutai-mountain-2.jpg",
-      alt: "A scene on Wutai Mountain, in Xinzhou",
+      url: "/images/placeholder.svg",
+      alt: "Wutai Mountain, Xinzhou — image pending",
       credit: null,
       source: null,
       license: null,
@@ -522,6 +523,337 @@ export const attractions: Attraction[] = [
       {
         question: "How long should I allow for a visit?",
         answer: "2–3 days for the full area, or 1 day for the core temples only.",
+      },
+    ],
+  },
+  {
+    name_en: "Xiaoxitian Temple",
+    name_zh: "小西天",
+    slug: "xiaoxitian-temple",
+    city: "Xi County (隰县)",
+    region: "linfen",
+    category: "temple",
+    short_description: "A 17th-century temple in Xi County, Linfen, known for its hanging sculptures.",
+    description:
+      "Xiaoxitian (小西天), also called Qianfo Temple (千佛寺), is a Buddhist temple on Fenghuang Mountain in Xi County, Linfen. Founded in 1629, its main hall contains nearly 2,000 Ming-dynasty hanging sculptures (悬塑), and it is one of the 27 Shanxi sites on the official Black Myth: Wukong location list.",
+    latitude: 36.7016,
+    longitude: 110.9267,
+    opening_hours: null,
+    ticket_price: {
+      amount: "35 (full) / 18 (half)",
+      currency: "CNY",
+      note: "Full-price adult; half-price ticket available",
+    },
+    reservation_required: null,
+    reservation_method: null,
+    passport_policy: null,
+    foreign_visitor_notes: null,
+    official_ticket_url: null,
+    official_website: null,
+    nearest_railway_station: "Linfen West Station (临汾西站), then ~2.5–3h bus to Xi County",
+    transportation:
+      "Take a long-distance bus from Linfen (城西客运站) to Xi County (~2.5–3 h), then a short taxi (~10 min) to the temple on Fenghuang Mountain; or join a Linfen–Xiaoxitian day-tour bus.",
+    recommended_visit_duration: "1–2 hours",
+    best_time_to_visit: null,
+    accessibility: null,
+    last_verified: VERIFIED_AT_V31,
+    verification_status: "verified",
+    official_sources: [
+      {
+        source_name: "Shanxi Provincial Cultural Relics Bureau — 'Follow Wukong through Shanxi' location list",
+        source_url: "http://wwj.shanxi.gov.cn/gzdt/szdt/202408/t20240821_9637797.shtml",
+        source_checked_at: VERIFIED_AT_V31,
+        source_level: 1,
+      },
+      {
+        source_name: "Wikidata — geographic coordinates",
+        source_url: "https://www.wikidata.org",
+        source_checked_at: VERIFIED_AT_V31,
+        source_level: 3,
+      },
+      {
+        source_name: "太原本地宝 (ty.bendibao.com) — ticket & opening info",
+        source_url: "http://ty.bendibao.com",
+        source_checked_at: VERIFIED_AT_V31,
+        source_level: 3,
+      },
+    ],
+    related_attractions: ["guangsheng-temple"],
+    black_myth_related: true,
+    black_myth_notes:
+      "One of the 27 Shanxi sites on the official Black Myth: Wukong list. The game's 'Small Western Paradise' chapter shares its name with this site; its main hall holds nearly 2,000 hanging sculptures (悬塑).",
+    image: {
+      url: "/images/placeholder.svg",
+      alt: "Xiaoxitian Temple (小西天) in Xi County, Linfen",
+      credit: null,
+      source: null,
+      license: null,
+    },
+    faq: [
+      {
+        question: "Where is Xiaoxitian?",
+        answer:
+          "It is on Fenghuang Mountain in Xi County (隰县), part of Linfen in southern Shanxi. It is not adjacent to Linfen city — allow about 2.5–3 hours by bus.",
+      },
+      {
+        question: "Why is Xiaoxitian famous?",
+        answer:
+          "Its main hall holds nearly 2,000 Ming-dynasty hanging sculptures (悬塑), and it is one of the 27 Shanxi sites on the official Black Myth: Wukong location list.",
+      },
+      {
+        question: "How much is the ticket?",
+        answer: "A full-price adult ticket is 35 CNY; a half-price ticket is 18 CNY.",
+      },
+      {
+        question: "How do I get there from Linfen?",
+        answer:
+          "Take a long-distance bus from Linfen's 城西客运站 to Xi County (about 2.5–3 hours), then a short taxi to the temple; or join a day-tour bus.",
+      },
+    ],
+  },
+  {
+    name_en: "Guangsheng Temple",
+    name_zh: "广胜寺",
+    slug: "guangsheng-temple",
+    city: "Hongdong County (洪洞县)",
+    region: "linfen",
+    category: "temple",
+    short_description: "A temple in Hongdong County, Linfen, known for the glazed-tile Flying Rainbow Tower.",
+    description:
+      "Guangsheng Temple (广胜寺) is a Buddhist temple in Hongdong County, Linfen, within the Huotai Mountain scenic area. It is best known for the Flying Rainbow Tower (飞虹塔), a 13-storey glazed-tile pagoda often described as the world's tallest of its kind. The temple is one of the 27 Shanxi sites on the official Black Myth: Wukong location list.",
+    latitude: null,
+    longitude: null,
+    opening_hours: "≈8:00–18:30 (peak); off-season closes earlier — confirm locally",
+    ticket_price: {
+      amount: "55–70 (sources differ)",
+      currency: "CNY",
+      note: "Full-price adult; some sources list 55 CNY, others 70 CNY — confirm before visiting",
+    },
+    reservation_required: null,
+    reservation_method: null,
+    passport_policy: null,
+    foreign_visitor_notes: null,
+    official_ticket_url: null,
+    official_website: null,
+    nearest_railway_station: "Linfen West Station (临汾西站), then bus/taxi to Hongdong County",
+    transportation:
+      "In Hongdong County (洪洞县), roughly 1–1.5h from central Linfen by bus or taxi. Local transport and schedules vary — confirm before travelling.",
+    recommended_visit_duration: "2–3 hours",
+    best_time_to_visit: null,
+    accessibility: null,
+    last_verified: VERIFIED_AT_V31,
+    verification_status: "pending",
+    official_sources: [
+      {
+        source_name: "Shanxi Provincial Cultural Relics Bureau — 'Follow Wukong through Shanxi' location list",
+        source_url: "http://wwj.shanxi.gov.cn/gzdt/szdt/202408/t20240821_9637797.shtml",
+        source_checked_at: VERIFIED_AT_V31,
+        source_level: 1,
+      },
+      {
+        source_name: "太原本地宝 (ty.bendibao.com) — Guangsheng Temple ticket & opening info",
+        source_url: "https://m.ty.bendibao.com/tour/75358.shtm",
+        source_checked_at: VERIFIED_AT_V31,
+        source_level: 3,
+      },
+      {
+        source_name: "Trip.com — Hongdong Guangsheng Temple guides",
+        source_url: "https://www.trip.com",
+        source_checked_at: VERIFIED_AT_V31,
+        source_level: 2,
+      },
+    ],
+    related_attractions: ["xiaoxitian-temple"],
+    black_myth_related: true,
+    black_myth_notes:
+      "One of the 27 Shanxi sites on the official Black Myth: Wukong list. Its glazed-tile Flying Rainbow Tower (飞虹塔) inspired pagoda scenes in the game.",
+    image: {
+      url: "/images/placeholder.svg",
+      alt: "Guangsheng Temple (广胜寺) and the Flying Rainbow Tower in Hongdong County, Linfen",
+      credit: null,
+      source: null,
+      license: null,
+    },
+    faq: [
+      {
+        question: "What is Guangsheng Temple known for?",
+        answer:
+          "Its glazed-tile Flying Rainbow Tower (飞虹塔), a 13-storey pagoda often called the world's tallest of its kind. It was also a filming location for the 1986 television series Journey to the West.",
+      },
+      {
+        question: "Where is it?",
+        answer:
+          "In Hongdong County (洪洞县), Linfen, within the Huotai Mountain scenic area — a separate county from Linfen city, not within walking distance of other Linfen sites.",
+      },
+      {
+        question: "How much is the ticket?",
+        answer:
+          "Sources differ: a full-price adult ticket is listed at 55–70 CNY depending on the source. Confirm the current price before visiting.",
+      },
+      {
+        question: "Is it a Black Myth: Wukong site?",
+        answer:
+          "Yes — it is one of the 27 Shanxi sites on the official Black Myth: Wukong location list.",
+      },
+    ],
+  },
+  {
+    name_en: "Hukou Waterfall",
+    name_zh: "壶口瀑布",
+    slug: "hukou-waterfall",
+    city: "Ji County (吉县)",
+    region: "linfen",
+    category: "scenic-area",
+    short_description: "The Yellow River's largest waterfall, on the Shanxi–Shaanxi border in Ji County.",
+    description:
+      "Hukou Waterfall (壶口瀑布) is the largest waterfall on the Yellow River, on the border between Shanxi and Shaanxi. The Shanxi-side entrance is in Ji County (吉县), Linfen. From 1 June 2026 a single ticket is valid on both the Shanxi and Shaanxi sides for two days.",
+    latitude: null,
+    longitude: null,
+    opening_hours: null,
+    ticket_price: {
+      amount: "80",
+      currency: "CNY",
+      note: "Shanxi-side adult ticket from 1 Jun 2026; shuttle bus ~16 CNY round-trip; one ticket valid on both sides for 2 days",
+    },
+    reservation_required: true,
+    reservation_method:
+      "Real-name ticket purchase via the scenic area's official WeChat account, on-site counters, or online platforms.",
+    passport_policy: null,
+    foreign_visitor_notes: null,
+    official_ticket_url: null,
+    official_website: null,
+    nearest_railway_station: "Linfen West Station (临汾西站), then several hours by bus/car to Ji County",
+    transportation:
+      "In Ji County (吉县), several hours from Linfen by long-distance bus or chartered car. Confirm transport and shuttle schedules before travelling.",
+    recommended_visit_duration: "2–3 hours",
+    best_time_to_visit: null,
+    accessibility: null,
+    last_verified: VERIFIED_AT_V31,
+    verification_status: "verified",
+    official_sources: [
+      {
+        source_name: "Yan'an Culture & Tourism Bureau (延安市文化和旅游局) — Jin–Shaan Hukou joint ticket report",
+        source_url: "https://wlj.yanan.gov.cn/xwzx/bdyw/2062728144453951490.html",
+        source_checked_at: VERIFIED_AT_V31,
+        source_level: 1,
+      },
+      {
+        source_name: "China National Radio 央广网 — '晋陕壶口瀑布景区实现一票通'",
+        source_url: "https://www.cnr.cn/sx/gstjsx/20260605/t20260605_527648342.shtml",
+        source_checked_at: VERIFIED_AT_V31,
+        source_level: 3,
+      },
+      {
+        source_name: "Guangming Net 光明网 — Jin–Shaan Hukou joint ticket report",
+        source_url: "https://m.gmw.cn/2026-06/03/content_1304481678.htm",
+        source_checked_at: VERIFIED_AT_V31,
+        source_level: 3,
+      },
+    ],
+    related_attractions: ["yao-temple"],
+    black_myth_related: false,
+    black_myth_notes: null,
+    image: {
+      url: "/images/placeholder.svg",
+      alt: "Hukou Waterfall on the Yellow River, Ji County, Linfen",
+      credit: null,
+      source: null,
+      license: null,
+    },
+    faq: [
+      {
+        question: "Where is Hukou Waterfall?",
+        answer:
+          "On the Yellow River at the Shanxi–Shaanxi border. The Shanxi-side entrance is in Ji County (吉县), Linfen, several hours from Linfen city.",
+      },
+      {
+        question: "How much is the ticket?",
+        answer:
+          "From 1 June 2026 the Shanxi-side adult ticket is 80 CNY, and a shuttle bus is about 16 CNY round-trip. One ticket is valid on both the Shanxi and Shaanxi sides for two days.",
+      },
+      {
+        question: "Do I need to book in advance?",
+        answer:
+          "Tickets use real-name purchase via the scenic area's official WeChat account, on-site counters, or online platforms.",
+      },
+      {
+        question: "Can I visit in one day from Linfen?",
+        answer:
+          "It is several hours each way from Linfen, so it is not a quick side trip. Allow a full day or arrange transport and an overnight stay.",
+      },
+    ],
+  },
+  {
+    name_en: "Yao Temple",
+    name_zh: "尧庙",
+    slug: "yao-temple",
+    city: "Linfen",
+    region: "linfen",
+    category: "temple",
+    short_description: "A temple in central Linfen honouring the legendary ruler Emperor Yao.",
+    description:
+      "Yao Temple (尧庙) is a temple complex in the Yaodu district of central Linfen, honouring Emperor Yao (尧), a legendary ruler of early China. It is close to the city centre and is often combined with the nearby Huamen (华门) scenic area.",
+    latitude: null,
+    longitude: null,
+    opening_hours: "≈8:00–18:00 (some sources list seasonal hours) — confirm locally",
+    ticket_price: {
+      amount: "35 (some sources 50)",
+      currency: "CNY",
+      note: "Full-price adult; sources differ (35–50 CNY) — confirm before visiting",
+    },
+    reservation_required: null,
+    reservation_method: null,
+    passport_policy: null,
+    foreign_visitor_notes: null,
+    official_ticket_url: null,
+    official_website: null,
+    nearest_railway_station: "Linfen West Station (临汾西站)",
+    transportation:
+      "In the Yaodu district of central Linfen. Reach it by city bus or a short taxi from central Linfen or Linfen West Station.",
+    recommended_visit_duration: "1–1.5 hours",
+    best_time_to_visit: null,
+    accessibility: null,
+    last_verified: VERIFIED_AT_V31,
+    verification_status: "pending",
+    official_sources: [
+      {
+        source_name: "Trip.com — Yao Temple (Linfen) tickets & hours",
+        source_url: "https://tw.trip.com/travel-guide/attraction/linfen/yao-temple-78499",
+        source_checked_at: VERIFIED_AT_V31,
+        source_level: 2,
+      },
+      {
+        source_name: "Wing On Travel 永安旅遊 — Yao Temple visit guide",
+        source_url: "https://www.wingontravel.com/discovery/scenic-linfen-139/list/scenic-yao-temple-78499",
+        source_checked_at: VERIFIED_AT_V31,
+        source_level: 3,
+      },
+    ],
+    related_attractions: ["hukou-waterfall"],
+    black_myth_related: false,
+    black_myth_notes: null,
+    image: {
+      url: "/images/placeholder.svg",
+      alt: "Yao Temple (尧庙) in central Linfen",
+      credit: null,
+      source: null,
+      license: null,
+    },
+    faq: [
+      {
+        question: "What is Yao Temple?",
+        answer:
+          "A temple complex in central Linfen honouring Emperor Yao, a legendary early Chinese ruler, often visited together with the nearby Huamen (华门) scenic area.",
+      },
+      {
+        question: "Where is it?",
+        answer:
+          "In the Yaodu district of central Linfen, easily reached by city bus or a short taxi.",
+      },
+      {
+        question: "How much is the ticket?",
+        answer:
+          "Sources differ: a full-price adult ticket is listed at 35–50 CNY. Confirm the current price before visiting.",
       },
     ],
   },

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Image placeholder">
+  <rect width="1200" height="800" fill="#f3e4dd"/>
+  <circle cx="600" cy="320" r="88" fill="none" stroke="#b0482f" stroke-width="4"/>
+  <path d="M478 468 L600 352 L722 468" fill="none" stroke="#b0482f" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M540 468 L600 412 L660 468" fill="none" stroke="#b0482f" stroke-width="4" stroke-linejoin="round"/>
+  <text x="600" y="596" text-anchor="middle" font-family="Georgia, serif" font-size="40" fill="#1c1a17">Image pending</text>
+  <text x="600" y="646" text-anchor="middle" font-family="Georgia, serif" font-size="24" fill="#8f887c">Explore Shanxi</text>
+</svg>

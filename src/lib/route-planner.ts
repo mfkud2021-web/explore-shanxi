@@ -62,8 +62,9 @@ function matchesInterest(dest: Destination, interest: Interest): boolean {
     case "history":
       return categories.some((c) => c === "museum" || c === "historic-city");
     case "food":
-    case "photography":
       return false;
+    case "photography":
+      return categories.includes("scenic-area");
   }
 }
 
@@ -73,6 +74,31 @@ function highlightsFor(slug: (typeof CORRIDOR)[number]): string[] {
   return dest.major_attractions
     .map((s) => attractionBySlug.get(s)?.name_en)
     .filter((n): n is string => Boolean(n));
+}
+
+// Some destinations list attractions that sit in different counties, several
+// hours apart. Flag this so the planner never implies a single day covers them.
+function spreadWarning(dest: Destination): string | null {
+  const cities = new Set(
+    dest.major_attractions
+      .map((slug) => attractionBySlug.get(slug)?.city)
+      .filter((c): c is string => Boolean(c)),
+  );
+  if (cities.size > 1) {
+    return "These attractions sit in different counties, several hours apart — don't try to visit them all in one day.";
+  }
+  return null;
+}
+
+// Flag stops whose attraction details still need verification, so travellers
+// know to confirm tickets, hours and transport themselves.
+function pendingWarning(dest: Destination): string | null {
+  const hasPending = dest.major_attractions.some(
+    (slug) => attractionBySlug.get(slug)?.verification_status === "pending",
+  );
+  return hasPending
+    ? "Some attraction details are pending verification — confirm tickets and transport before travelling."
+    : null;
 }
 
 function routeDuration(from: string, to: string): string | null {
@@ -142,13 +168,19 @@ export function buildRoute(input: RoutePlannerInput): RoutePlan {
     if (remaining < minDays) continue;
     const dest = destBySlug.get(slug)!;
     const matching = input.interests.filter((i) => matchesInterest(dest, i));
+    const notes: string[] = [];
+    if (matching.length) {
+      notes.push(`Matches: ${matching.map((i) => INTEREST_LABEL[i]).join(", ")}`);
+    }
+    const spread = spreadWarning(dest);
+    if (spread) notes.push(spread);
+    const pending = pendingWarning(dest);
+    if (pending) notes.push(pending);
     stops.push({
       city: dest.name_en,
       days: minDays,
       highlights: highlightsFor(slug),
-      note: matching.length
-        ? `Matches: ${matching.map((i) => INTEREST_LABEL[i]).join(", ")}`
-        : null,
+      note: notes.length ? notes.join(" ") : null,
       transport: null,
     });
     remaining -= minDays;

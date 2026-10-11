@@ -115,7 +115,7 @@ export default function Home() {
               </h2>
               <p className="mt-2 max-w-2xl text-muted">
                 Shanxi&apos;s most significant ancient sites — cave temples, cliffside
-                monasteries and a UNESCO walled city.
+                monasteries, a UNESCO walled city and the temples of southern Shanxi.
               </p>
             </div>
             <Link

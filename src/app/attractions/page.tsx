@@ -7,7 +7,7 @@ import { CATEGORY_LABELS } from "@/lib/format";
 export const metadata: Metadata = buildMetadata({
   title: "Attractions in Shanxi",
   description:
-    "Practical guides to Shanxi's main attractions, including the Yungang Grottoes, Hanging Temple, Jinci Temple and Pingyao Ancient City.",
+    "Practical guides to Shanxi's main attractions — from the Yungang Grottoes and Hanging Temple in the north to the temples of southern Shanxi — with tickets, reservations and transport.",
   path: "/attractions",
 });
 

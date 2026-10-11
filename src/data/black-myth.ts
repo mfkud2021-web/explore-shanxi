@@ -153,12 +153,31 @@ export const blackMythLocations: BlackMythLocation[] = [
     ticket_info: "35 CNY (full-price adult); 18 CNY (half-price)",
     how_to_get_there:
       "In Xi County (隰县), Linfen. Take a long-distance bus from Linfen (城西客运站) to Xi County (~2.5–3 h), then a short taxi (~10 min) to the temple on Fenghuang Mountain; or join a Linfen–Xiaoxitian day-tour bus.",
-    related_attraction_slug: null,
+    related_attraction_slug: "xiaoxitian-temple",
     latitude: 36.7016,
     longitude: 110.9267,
     notes:
       "In Xi County (Linfen), founded 1629; its main hall holds nearly 2,000 hanging sculptures (悬塑). The game's 'Small Western Paradise' chapter shares its name with this site.",
     sources: [OFFICIAL_LIST, MEDIA_REPORT, WIKIDATA, BENDIBAO],
+    last_verified: VERIFIED_AT,
+  },
+  {
+    slug: "guangsheng-temple",
+    game_location: "Glazed-tile pagoda (飞虹塔) scenes",
+    real_location_en: "Guangsheng Temple",
+    real_location_zh: "广胜寺",
+    city: "linfen",
+    can_visit: true,
+    connection_status: "verified",
+    ticket_info: "≈70 CNY (sources differ 55–70)",
+    how_to_get_there:
+      "In Hongdong County (洪洞县), Linfen. About 1–1.5h from central Linfen by bus or taxi; confirm local transport.",
+    related_attraction_slug: "guangsheng-temple",
+    latitude: null,
+    longitude: null,
+    notes:
+      "In Hongdong County, Linfen. Its glazed-tile Flying Rainbow Tower (飞虹塔) — a 13-storey, 47-metre pagoda — is the temple's landmark and appears among the game's pagoda references.",
+    sources: [OFFICIAL_LIST, MEDIA_REPORT],
     last_verified: VERIFIED_AT,
   },
   {

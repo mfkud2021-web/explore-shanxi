@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   getTravelEssentialBySlug,
@@ -83,6 +84,24 @@ export default async function TravelEssentialPage({
             </p>
           </div>
         )}
+
+        {guide.related && guide.related.length > 0 ? (
+          <section className="mt-12">
+            <h2 className="font-serif text-xl font-semibold">Related</h2>
+            <ul className="mt-4 flex flex-wrap gap-2">
+              {guide.related.map((r) => (
+                <li key={r.href}>
+                  <Link
+                    href={r.href}
+                    className="inline-flex items-center rounded-full border border-border bg-surface px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-accent hover:text-accent"
+                  >
+                    {r.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
 
         <section className="mt-12">
           <h2 className="font-serif text-xl font-semibold">Sources &amp; verification</h2>

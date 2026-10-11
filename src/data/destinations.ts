@@ -15,8 +15,8 @@ export const destinations: Destination[] = [
     major_attractions: ["yungang-grottoes", "hanging-temple"],
     transport_hint: "High-speed rail from Beijing and Taiyuan",
     hero_image: {
-      url: "/images/datong.jpg",
-      alt: "A scene in Datong, Shanxi province",
+      url: "/images/placeholder.svg",
+      alt: "Datong, Shanxi — image pending",
       credit: null,
       source: null,
       license: null,
@@ -81,8 +81,8 @@ export const destinations: Destination[] = [
     major_attractions: ["jinci-temple", "shanxi-museum"],
     transport_hint: "Main rail and air hub for Shanxi",
     hero_image: {
-      url: "/images/taiyuan.jpg",
-      alt: "A scene in Taiyuan, Shanxi province",
+      url: "/images/placeholder.svg",
+      alt: "Taiyuan, Shanxi — image pending",
       credit: null,
       source: null,
       license: null,
@@ -136,8 +136,8 @@ export const destinations: Destination[] = [
     major_attractions: ["pingyao-ancient-city"],
     transport_hint: "High-speed rail station serving the old town",
     hero_image: {
-      url: "/images/pingyao.jpg",
-      alt: "A historic scene in Pingyao",
+      url: "/images/placeholder.svg",
+      alt: "Pingyao, Shanxi — image pending",
       credit: null,
       source: null,
       license: null,
@@ -197,8 +197,8 @@ export const destinations: Destination[] = [
     major_attractions: ["wutai-mountain"],
     transport_hint: "Reached overland from Taiyuan or Xinzhou",
     hero_image: {
-      url: "/images/wutai-mountain.jpg",
-      alt: "The White Pagoda (大白塔) at Wutai Mountain, Xinzhou",
+      url: "/images/placeholder.svg",
+      alt: "Wutai Mountain, Xinzhou — image pending",
       credit: null,
       source: null,
       license: null,
@@ -255,11 +255,11 @@ export const destinations: Destination[] = [
     summary:
       "Linfen, in southern Shanxi, is a base for exploring the region's ancient temples, pagodas and other historic architecture. It lies on the high-speed rail corridor between Taiyuan and Xi'an.",
     recommended_stay: "2–3 days",
-    major_attractions: [],
+    major_attractions: ["yao-temple", "guangsheng-temple", "xiaoxitian-temple", "hukou-waterfall"],
     transport_hint: "High-speed rail on the Taiyuan–Xi'an line",
     hero_image: {
-      url: "/images/linfen.jpg",
-      alt: "A scene in Linfen, southern Shanxi",
+      url: "/images/placeholder.svg",
+      alt: "Linfen, southern Shanxi — image pending",
       credit: null,
       source: null,
       license: null,

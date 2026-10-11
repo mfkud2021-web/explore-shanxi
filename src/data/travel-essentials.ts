@@ -77,6 +77,11 @@ export const travelEssentials: EssentialGuide[] = [
           "Prices, opening hours and booking rules change, and peak-season or holiday policies differ. Check the official channel or a recent travel-platform listing a few days before your visit.",
       },
     ],
+    related: [
+      { label: "Passport Guide", href: "/travel-essentials/passport-guide" },
+      { label: "Train & Transport", href: "/travel-essentials/train-and-transport" },
+      { label: "Tickets index", href: "/tickets" },
+    ],
     sources: [TRIPCOM, CTRIP_TRAINS],
     last_verified: VERIFIED_AT,
     verification_status: "verified",
@@ -107,6 +112,11 @@ export const travelEssentials: EssentialGuide[] = [
         body:
           "Many nationalities can use China's 240-hour (10-day) visa-free transit if transiting onward to a third country; some can enter visa-free directly. Entry rules change frequently — always confirm your specific situation with the National Immigration Administration or your local Chinese embassy before booking flights.",
       },
+    ],
+    related: [
+      { label: "Tickets & Reservations", href: "/travel-essentials/tickets-and-reservations" },
+      { label: "Train & Transport", href: "/travel-essentials/train-and-transport" },
+      { label: "Where to Stay", href: "/travel-essentials/where-to-stay" },
     ],
     sources: [NIA, TRIPCOM],
     last_verified: VERIFIED_AT,
@@ -144,6 +154,11 @@ export const travelEssentials: EssentialGuide[] = [
           "For outlying sites such as the Hanging Temple and Wutai Mountain, use long-distance buses, taxis, ride-hailing (DiDi) or a day tour. Private cars are restricted in Wutai Mountain's core area during peak season.",
       },
     ],
+    related: [
+      { label: "Passport Guide", href: "/travel-essentials/passport-guide" },
+      { label: "Payments in China", href: "/travel-essentials/payments-in-china" },
+      { label: "Transport routes", href: "/transport" },
+    ],
     sources: [RAIL_12306, TRIPCOM, CTRIP_TRAINS],
     last_verified: VERIFIED_AT,
     verification_status: "verified",
@@ -179,6 +194,10 @@ export const travelEssentials: EssentialGuide[] = [
         body:
           "Most shops, restaurants and attractions take Alipay or WeChat Pay scan-to-pay, but many small merchants do not accept foreign cards directly — mobile payment is the default for daily spending.",
       },
+    ],
+    related: [
+      { label: "Internet & Apps", href: "/travel-essentials/internet-and-apps" },
+      { label: "First Time in Shanxi", href: "/travel-essentials/first-time-in-shanxi" },
     ],
     sources: [TRAVEL_CHINA, SHANGHAI_GOV],
     last_verified: VERIFIED_AT,
@@ -216,6 +235,10 @@ export const travelEssentials: EssentialGuide[] = [
           "Useful local alternatives: Amap or Baidu Maps for navigation, DiDi for ride-hailing, WeChat for messaging and payments, Alipay for payments, and a translation app. WeChat is effectively essential because most attraction reservations run through it.",
       },
     ],
+    related: [
+      { label: "Payments in China", href: "/travel-essentials/payments-in-china" },
+      { label: "Passport Guide", href: "/travel-essentials/passport-guide" },
+    ],
     sources: [TRIPCOM],
     last_verified: VERIFIED_AT,
     verification_status: "verified",
@@ -247,6 +270,11 @@ export const travelEssentials: EssentialGuide[] = [
           "Book well ahead for Chinese public holidays and summer, when rooms and train tickets sell out. Check how close the hotel is to the high-speed station or the sights you plan to visit.",
       },
     ],
+    related: [
+      { label: "Train & Transport", href: "/travel-essentials/train-and-transport" },
+      { label: "First Time in Shanxi", href: "/travel-essentials/first-time-in-shanxi" },
+      { label: "Destinations", href: "/destinations" },
+    ],
     sources: [TRIPCOM],
     last_verified: VERIFIED_AT,
     verification_status: "verified",
@@ -260,12 +288,12 @@ export const travelEssentials: EssentialGuide[] = [
       {
         heading: "A classic route",
         body:
-          "A natural first trip follows the high-speed rail corridor: Beijing → Datong (Yungang Grottoes, Hanging Temple) → Taiyuan (Jinci Temple, Shanxi Museum) → Pingyao (walled city) → Xi'an.",
+          "A natural first trip follows the high-speed rail corridor: Beijing → Datong (Yungang Grottoes, Hanging Temple) → Taiyuan (Jinci Temple, Shanxi Museum) → Pingyao (walled city) → Xi'an. For southern Shanxi's temples and the Black Myth: Wukong sites (Xiaoxitian, Guangsheng), stop at Linfen on the way south.",
       },
       {
         heading: "How long to allow",
         body:
-          "A typical first visit is 5–7 days: about 2 days in Datong, 1–2 in Taiyuan, 1–2 in Pingyao, plus 2–3 days if you add Wutai Mountain.",
+          "A typical first visit is 5–7 days: about 2 days in Datong, 1–2 in Taiyuan, 1–2 in Pingyao, plus 2–3 days if you add Wutai Mountain or southern Shanxi (Linfen).",
       },
       {
         heading: "When to go",
@@ -282,6 +310,11 @@ export const travelEssentials: EssentialGuide[] = [
         body:
           "Reservation rules, ticket prices and opening hours vary by site and change over time. Treat this guide as a starting point and verify the specifics for each site shortly before you travel.",
       },
+    ],
+    related: [
+      { label: "Tickets & Reservations", href: "/travel-essentials/tickets-and-reservations" },
+      { label: "Passport Guide", href: "/travel-essentials/passport-guide" },
+      { label: "Trip planner", href: "/trip-planner" },
     ],
     sources: [NIA, RAIL_12306, TRIPCOM],
     last_verified: VERIFIED_AT,
