@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getBlackMythLocations } from "@/lib/data-access";
+import { getBlackMythLocations, getAttractionBySlug } from "@/lib/data-access";
 import { buildMetadata } from "@/lib/seo";
 import { faqPage } from "@/lib/schema";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -69,9 +69,18 @@ export default function BlackMythPage() {
 
         {locations.length > 0 ? (
           <div className="mt-10 grid gap-6 md:grid-cols-2">
-            {locations.map((loc) => (
-              <BlackMythCard key={loc.slug} location={loc} />
-            ))}
+            {locations.map((loc) => {
+              const related = loc.related_attraction_slug
+                ? getAttractionBySlug(loc.related_attraction_slug)
+                : null;
+              return (
+                <BlackMythCard
+                  key={loc.slug}
+                  location={loc}
+                  image={related?.image ?? null}
+                />
+              );
+            })}
           </div>
         ) : (
           <div className="mt-10 rounded-xl border border-dashed border-border bg-surface p-10 text-center">

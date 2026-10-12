@@ -7,6 +7,7 @@ import {
   getAttractionSlugs,
   getAttractionsBySlugs,
 } from "@/lib/data-access";
+import { getRegion } from "@/data/regions";
 import { buildMetadata } from "@/lib/seo";
 import { breadcrumbList, touristAttraction, faqPage } from "@/lib/schema";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -48,6 +49,17 @@ export default async function AttractionPage({
 
   const related = getAttractionsBySlugs(attraction.related_attractions);
 
+  const region = getRegion(attraction.region);
+  const locationText =
+    region && region.name_en !== attraction.city
+      ? `${attraction.city} · ${region.name_en}`
+      : attraction.city;
+
+  const [aspectW, aspectH] = (attraction.image.aspectRatio ?? "3/2")
+    .split("/")
+    .map((n) => Number(n));
+  const isPortrait = !Number.isNaN(aspectH) && aspectH > aspectW;
+
   return (
     <>
       <JsonLd data={touristAttraction(attraction)} />
@@ -80,13 +92,19 @@ export default async function AttractionPage({
               {attraction.name_zh}
             </span>
           </h1>
+          <p className="mt-2 text-sm font-medium text-muted">{locationText}</p>
           <p className="mt-3 max-w-2xl text-lg text-muted">
             {attraction.short_description}
           </p>
         </header>
 
         <figure className="mt-8">
-          <div className="relative aspect-[3/2] w-full overflow-hidden rounded-xl border border-border">
+          <div
+            className={`relative w-full overflow-hidden rounded-xl border border-border ${
+              isPortrait ? "mx-auto max-w-md" : ""
+            }`}
+            style={{ aspectRatio: `${aspectW} / ${aspectH}` }}
+          >
             <Image
               src={attraction.image.url}
               alt={attraction.image.alt}
@@ -183,6 +201,21 @@ export default async function AttractionPage({
             </section>
 
             <FaqSection faqs={attraction.faq} />
+
+            <div className="rounded-xl border border-border bg-accent-soft p-6">
+              <h2 className="font-serif text-xl font-semibold">
+                Plan your Shanxi route
+              </h2>
+              <p className="mt-2 text-sm text-muted">
+                Build a sample itinerary through Shanxi&apos;s ancient sites.
+              </p>
+              <Link
+                href="/trip-planner"
+                className="mt-3 inline-block text-sm font-medium text-accent hover:text-accent-hover"
+              >
+                Open the trip planner →
+              </Link>
+            </div>
           </div>
 
           <aside className="lg:col-span-1">

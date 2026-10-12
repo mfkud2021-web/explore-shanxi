@@ -1,6 +1,6 @@
 # Image Audit — Explore Shanxi
 
-Audit date: 2026-10-12 (V4.1 Travel Photography Upgrade)
+Audit date: 2026-10-12 (V4.2 Attraction Photography & Detail Page Upgrade)
 
 Policy: we only display images whose author and license we can verify. "Publicly
 visible online" is **not** treated as free commercial use. Every displayed image
@@ -9,12 +9,12 @@ equivalent), and a source link.
 
 ## Status
 
-All 15 image slots (10 attractions + 5 destination heroes) now use a locally
+All 16 image slots (11 attractions + 5 destination heroes) now use a locally
 saved, licence-verified Wikimedia Commons image. No placeholders remain in use.
 
 | Status | Count |
 | --- | --- |
-| **Verified** (author + license, shown on site) | 15 |
+| **Verified** (author + license, shown on site) | 16 |
 | **Pending** (unverified) | 0 |
 | **Placeholder** | 0 |
 
@@ -30,6 +30,7 @@ saved, licence-verified Wikimedia Commons image. No placeholders remain in use.
 | `public/images/wutai-mountain.jpg` | Wutai Mountain attraction | Popolon | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Wutai_shan_temples.jpg |
 | `public/images/xiaoxitian-temple.jpg` | Xiaoxitian Temple attraction | 三猎 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:隰县小西天_上院下院.JPG |
 | `public/images/guangsheng-temple.jpg` | Guangsheng Temple attraction | Artsxiang | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:广胜寺_03.JPG |
+| `public/images/yingxian-wooden-pagoda.jpg` | Yingxian Wooden Pagoda attraction | Charlie fong | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Pagoda_of_Fogong_Temple_at_Dust.jpg |
 | `public/images/hukou-waterfall.jpg` | Hukou Waterfall attraction | Fanghong | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Hukou_waterfall.jpg |
 | `public/images/yao-temple.jpg` | Yao Temple attraction | Emdx | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:J81929_Linfen_20140706-094434.58_36.05346,111.49097_TempleEmpereurYao.jpg |
 | `public/images/datong.jpg` | Datong destination hero | Charlie fong | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:The_skyline_of_Datong（Southgate）2019.jpg |
@@ -64,20 +65,20 @@ These files were unverified or orphaned and have been deleted:
 - Container aspect ratios: homepage hero `4/3`, attraction cards `3/2`,
   destination cards `4/3`, detail heroes `3/2`.
 
-## Cropping caveats (manual review recommended)
+## Cropping & orientation (manual review recommended)
 
-The display slots are landscape (3:2 / 4:3), but three sources have a different
-native orientation. They are shown with `object-cover` centre-crop, which is
-correct but worth a visual check:
+Three sources have a non-landscape native orientation. As of V4.2 each is shown
+in a container matching that orientation (via `ImageAsset.aspectRatio`) instead
+of being forced into a 3:2 crop:
 
-| File | Native size | Note |
-| --- | --- | --- |
-| `public/images/yao-temple.jpg` | 750×1200 (portrait) | Statue of Emperor Yao — centre-crop cuts top/bottom; also only 750px wide (low resolution) |
-| `public/images/hukou-waterfall.jpg` | 1920×2560 (portrait) | Waterfall — centre-crop shows the central falls |
-| `public/images/pingyao-ancient-city.jpg` | 1920×477 (wide pano) | Aerial city panorama — crop shows only the middle of the frame |
+| File | Native size | Display | Note |
+| --- | --- | --- | --- |
+| `public/images/yao-temple.jpg` | 750×1200 (portrait) | portrait 3/4 hero | Statue of Emperor Yao — only 750px wide, so it may look soft on large screens |
+| `public/images/hukou-waterfall.jpg` | 1920×2560 (portrait) | portrait 3/4 hero | Waterfall — full height now visible |
+| `public/images/pingyao-ancient-city.jpg` | 1920×477 (wide pano) | panorama 4/1 | Aerial city panorama — full width now visible |
 
-If any crop looks wrong in the browser, the fix is an `object-position` tweak on
-the specific image (or sourcing a landscape alternative).
+The Yao Temple image remains low-resolution regardless of layout; the only fix
+is a higher-resolution source (none was found — see below).
 
 ### Yao Temple image
 
@@ -90,8 +91,12 @@ The file is therefore retained despite being a low-resolution portrait.
 
 ## Out of scope
 
-- Yingxian Wooden Pagoda (应县木塔) and the other Black Myth locations have no
-  image slot — `BlackMythCard` is text-only, so no image was assigned.
+- The Black Myth locations without a dedicated attraction page (Foguang Temple,
+  Nanchan Temple, Shuanglin Temple, Yuhuang Temple) remain text-only on the
+  Black Myth page — no verified image has been assigned to them.
+- The Black Myth page reuses the attraction images (Yungang Grottoes, Hanging
+  Temple, Xiaoxitian, Guangsheng Temple, Yingxian Wooden Pagoda); no new image
+  files were added for the Black Myth page itself.
 
 ## To change an image
 

@@ -210,7 +210,7 @@ export const blackMythLocations: BlackMythLocation[] = [
     ticket_info: "50 CNY (full-price adult); 25 CNY (half-price)",
     how_to_get_there:
       "In Ying County (应县), Shuozhou. High-speed rail from Datong South to Yingxian West (~20–30 min), then bus 3 (~5 CNY) or a short taxi (~10 min) to the pagoda.",
-    related_attraction_slug: null,
+    related_attraction_slug: "yingxian-wooden-pagoda",
     latitude: 39.5653,
     longitude: 113.1819,
     notes:

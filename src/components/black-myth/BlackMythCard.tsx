@@ -1,8 +1,11 @@
 import type { ReactNode } from "react";
-import type { BlackMythLocation } from "@/types";
+import Image from "next/image";
+import Link from "next/link";
+import type { BlackMythLocation, ImageAsset } from "@/types";
 import { formatDate } from "@/lib/format";
 import { VerifiedValue } from "@/components/ui/VerifiedValue";
 import { SourceBlock } from "@/components/ui/SourceBlock";
+import { ImageCredit } from "@/components/ui/ImageCredit";
 
 const CONNECTION_LABELS: Record<BlackMythLocation["connection_status"], string> = {
   verified: "Verified connection",
@@ -25,7 +28,13 @@ function Row({ label, children }: { label: string; children: ReactNode }) {
   );
 }
 
-export function BlackMythCard({ location }: { location: BlackMythLocation }) {
+export function BlackMythCard({
+  location,
+  image,
+}: {
+  location: BlackMythLocation;
+  image?: ImageAsset | null;
+}) {
   const visit =
     location.can_visit === null
       ? null
@@ -34,7 +43,27 @@ export function BlackMythCard({ location }: { location: BlackMythLocation }) {
         : "No";
 
   return (
-    <article className="overflow-hidden rounded-xl border border-border bg-surface">
+    <article className="flex flex-col overflow-hidden rounded-xl border border-border bg-surface">
+      {image ? (
+        <figure>
+          <div className="relative aspect-[3/2] w-full overflow-hidden bg-accent-soft">
+            <Image
+              src={image.url}
+              alt={image.alt}
+              fill
+              sizes="(min-width: 768px) 50vw, 100vw"
+              className="object-cover"
+            />
+          </div>
+          <figcaption className="px-5 pt-2">
+            <ImageCredit
+              credit={image.credit}
+              source={image.source}
+              license={image.license}
+            />
+          </figcaption>
+        </figure>
+      ) : null}
       <div className="border-b border-border p-5">
         <span
           className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium ${CONNECTION_STYLES[location.connection_status]}`}
@@ -75,6 +104,16 @@ export function BlackMythCard({ location }: { location: BlackMythLocation }) {
           </dd>
         </div>
       </dl>
+      {location.related_attraction_slug ? (
+        <div className="mt-auto border-t border-border p-5">
+          <Link
+            href={`/attractions/${location.related_attraction_slug}`}
+            className="text-sm font-medium text-accent hover:text-accent-hover"
+          >
+            View full attraction guide →
+          </Link>
+        </div>
+      ) : null}
     </article>
   );
 }

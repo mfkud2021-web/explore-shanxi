@@ -2,6 +2,7 @@ import type { Attraction } from "@/types";
 
 const VERIFIED_AT = "2026-10-07";
 const VERIFIED_AT_V31 = "2026-10-11";
+const VERIFIED_AT_V42 = "2026-10-12";
 
 export const attractions: Attraction[] = [
   {
@@ -417,6 +418,7 @@ export const attractions: Attraction[] = [
       credit: "Chensiyuan",
       source: "https://commons.wikimedia.org/wiki/File:1_pingyao_ancient_city_aerial_pano_2019.jpg",
       license: "CC BY-SA 4.0",
+      aspectRatio: "4/1",
     },
     faq: [
       {
@@ -759,6 +761,7 @@ export const attractions: Attraction[] = [
       credit: "Fanghong",
       source: "https://commons.wikimedia.org/wiki/File:Hukou_waterfall.jpg",
       license: "CC BY-SA 4.0",
+      aspectRatio: "3/4",
     },
     faq: [
       {
@@ -838,6 +841,7 @@ export const attractions: Attraction[] = [
       credit: "Emdx",
       source: "https://commons.wikimedia.org/wiki/File:J81929_Linfen_20140706-094434.58_36.05346,111.49097_TempleEmpereurYao.jpg",
       license: "CC BY-SA 4.0",
+      aspectRatio: "3/4",
     },
     faq: [
       {
@@ -854,6 +858,103 @@ export const attractions: Attraction[] = [
         question: "How much is the ticket?",
         answer:
           "Sources differ: a full-price adult ticket is listed at 35–50 CNY. Confirm the current price before visiting.",
+      },
+    ],
+  },
+  {
+    name_en: "Yingxian Wooden Pagoda",
+    name_zh: "应县木塔",
+    slug: "yingxian-wooden-pagoda",
+    city: "Ying County (应县)",
+    region: "shuozhou",
+    category: "ancient-architecture",
+    short_description: "The world's oldest and tallest surviving wooden pagoda, built in 1056 during the Liao dynasty.",
+    description:
+      "Yingxian Wooden Pagoda (应县木塔), officially the Sakyamuni Pagoda of Fogong Temple (佛宫寺释迦塔), is a Liao-dynasty timber pagoda in Ying County, Shuozhou, in northern Shanxi. Built in 1056, it is the oldest and tallest surviving wooden pagoda in the world. The octagonal pagoda stands about 67 metres tall and has five visible storeys with additional intermediate mezzanine levels, built almost entirely of timber on an intricate system of bracket sets (斗拱). It is one of the 27 Shanxi sites on the official Black Myth: Wukong location list.",
+    latitude: 39.5653,
+    longitude: 113.1819,
+    opening_hours: null,
+    ticket_price: {
+      amount: "50",
+      currency: "CNY",
+      note: "Full-price adult; 25 CNY half-price — confirm before visiting",
+    },
+    reservation_required: null,
+    reservation_method: null,
+    passport_policy: null,
+    foreign_visitor_notes: null,
+    official_ticket_url: null,
+    official_website: null,
+    nearest_railway_station: "Yingxian West Station (high-speed rail)",
+    transportation:
+      "High-speed rail from Datong South to Yingxian West Station (~20–30 min), then bus 3 (~5 CNY) or a short taxi (~10 min) to the pagoda.",
+    recommended_visit_duration: "1–2 hours (estimate)",
+    best_time_to_visit: null,
+    accessibility: null,
+    last_verified: VERIFIED_AT_V42,
+    verification_status: "pending",
+    official_sources: [
+      {
+        source_name: "Shanxi Provincial Cultural Relics Bureau — 'Follow Wukong through Shanxi' location list",
+        source_url: "http://wwj.shanxi.gov.cn/gzdt/szdt/202408/t20240821_9637797.shtml",
+        source_checked_at: VERIFIED_AT_V42,
+        source_level: 1,
+      },
+      {
+        source_name: "People's Daily client / Shanxi Evening News — report on the 27 locations",
+        source_url: "https://www.peopleapp.com/column/30046461572-500005723821",
+        source_checked_at: VERIFIED_AT_V42,
+        source_level: 3,
+      },
+      {
+        source_name: "Wikidata — geographic coordinates",
+        source_url: "https://www.wikidata.org",
+        source_checked_at: VERIFIED_AT_V42,
+        source_level: 3,
+      },
+      {
+        source_name: "太原本地宝 (ty.bendibao.com) — ticket info",
+        source_url: "http://ty.bendibao.com",
+        source_checked_at: VERIFIED_AT_V42,
+        source_level: 3,
+      },
+    ],
+    related_attractions: [],
+    black_myth_related: true,
+    black_myth_notes:
+      "One of the 27 Shanxi sites on the official Black Myth: Wukong list. The game's wooden-pagoda scenes reference this Liao-dynasty pagoda, the world's oldest and tallest surviving wooden pagoda.",
+    image: {
+      url: "/images/yingxian-wooden-pagoda.jpg",
+      alt: "The Yingxian Wooden Pagoda (Sakyamuni Pagoda of Fogong Temple), a Liao-dynasty timber pagoda in Ying County, Shuozhou",
+      credit: "Charlie fong",
+      source: "https://commons.wikimedia.org/wiki/File:Pagoda_of_Fogong_Temple_at_Dust.jpg",
+      license: "CC BY-SA 4.0",
+    },
+    faq: [
+      {
+        question: "What is the Yingxian Wooden Pagoda?",
+        answer:
+          "It is the oldest and tallest surviving wooden pagoda in the world. Officially the Sakyamuni Pagoda of Fogong Temple (佛宫寺释迦塔), it was built in 1056 during the Liao dynasty and stands about 67 metres tall.",
+      },
+      {
+        question: "Where is it?",
+        answer:
+          "In Ying County (应县), Shuozhou, in northern Shanxi. It is most easily reached as a day trip from Datong.",
+      },
+      {
+        question: "How do I get there?",
+        answer:
+          "Take high-speed rail from Datong South to Yingxian West Station (about 20–30 minutes), then bus 3 (about 5 CNY) or a short taxi (about 10 minutes) to the pagoda.",
+      },
+      {
+        question: "How much is the ticket?",
+        answer:
+          "A full-price adult ticket is 50 CNY and a half-price ticket is 25 CNY. Confirm the current price before visiting.",
+      },
+      {
+        question: "Is it a Black Myth: Wukong site?",
+        answer:
+          "Yes — it is one of the 27 Shanxi sites on the official Black Myth: Wukong location list, referenced by the game's wooden-pagoda scenes.",
       },
     ],
   },
