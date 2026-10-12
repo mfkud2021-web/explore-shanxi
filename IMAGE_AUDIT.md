@@ -72,12 +72,21 @@ correct but worth a visual check:
 
 | File | Native size | Note |
 | --- | --- | --- |
-| `public/images/yao-temple.jpg` | 1600×2560 (portrait) | Statue of Emperor Yao — centre-crop cuts top/bottom |
-| `public/images/hukou-waterfall.jpg` | 1600×2133 (portrait) | Waterfall — centre-crop shows the central falls |
-| `public/images/pingyao-ancient-city.jpg` | 1600×397 (wide pano) | Aerial city panorama — crop shows only the middle of the frame |
+| `public/images/yao-temple.jpg` | 750×1200 (portrait) | Statue of Emperor Yao — centre-crop cuts top/bottom; also only 750px wide (low resolution) |
+| `public/images/hukou-waterfall.jpg` | 1920×2560 (portrait) | Waterfall — centre-crop shows the central falls |
+| `public/images/pingyao-ancient-city.jpg` | 1920×477 (wide pano) | Aerial city panorama — crop shows only the middle of the frame |
 
 If any crop looks wrong in the browser, the fix is an `object-position` tweak on
 the specific image (or sourcing a landscape alternative).
+
+### Yao Temple image
+
+The current `yao-temple.jpg` (Emdx, CC BY-SA 4.0) is the only image on Wikimedia
+Commons correctly identified as the Linfen 尧庙. A re-search (2026-10-12) for a
+landscape alternative returned no correctly-attributed candidate: other
+"Emperor Yao Temple" results were Yao temples in Taiwan or unrelated buildings
+(for example the modern 华门 "China Gate" in Yaodu district, which is not 尧庙).
+The file is therefore retained despite being a low-resolution portrait.
 
 ## Out of scope
 
