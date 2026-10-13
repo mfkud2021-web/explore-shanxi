@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { getBlackMythLocations, getAttractionBySlug } from "@/lib/data-access";
 import { buildMetadata } from "@/lib/seo";
 import { faqPage } from "@/lib/schema";
@@ -77,7 +78,7 @@ export default function BlackMythPage() {
                 <BlackMythCard
                   key={loc.slug}
                   location={loc}
-                  image={related?.image ?? null}
+                  image={related?.image ?? loc.image ?? null}
                 />
               );
             })}
@@ -94,6 +95,20 @@ export default function BlackMythPage() {
 
         <div className="mt-12 max-w-3xl">
           <FaqSection faqs={BLACK_MYTH_FAQS} />
+        </div>
+
+        <div className="mt-12 rounded-xl border border-border bg-accent-soft p-6">
+          <h2 className="font-serif text-xl font-semibold">Plan your Shanxi trip</h2>
+          <p className="mt-2 text-sm text-muted">
+            Many of these sites lie on one route through Datong, Taiyuan, Pingyao and
+            Linfen. Build an itinerary around the locations you want to visit.
+          </p>
+          <Link
+            href="/trip-planner"
+            className="mt-3 inline-block text-sm font-medium text-accent hover:text-accent-hover"
+          >
+            Open the trip planner →
+          </Link>
         </div>
       </div>
     </>

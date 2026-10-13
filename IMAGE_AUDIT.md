@@ -1,6 +1,6 @@
 # Image Audit — Explore Shanxi
 
-Audit date: 2026-10-12 (V4.2 Attraction Photography & Detail Page Upgrade)
+Audit date: 2026-10-13 (V4.3 Black Myth Travel Experience & Ancient Architecture Photography)
 
 Policy: we only display images whose author and license we can verify. "Publicly
 visible online" is **not** treated as free commercial use. Every displayed image
@@ -9,12 +9,13 @@ equivalent), and a source link.
 
 ## Status
 
-All 16 image slots (11 attractions + 5 destination heroes) now use a locally
-saved, licence-verified Wikimedia Commons image. No placeholders remain in use.
+All 20 image slots (11 attractions + 5 destination heroes + 4 Black Myth
+locations) now use a locally saved, licence-verified Wikimedia Commons image.
+No placeholders remain in use.
 
 | Status | Count |
 | --- | --- |
-| **Verified** (author + license, shown on site) | 16 |
+| **Verified** (author + license, shown on site) | 20 |
 | **Pending** (unverified) | 0 |
 | **Placeholder** | 0 |
 
@@ -38,6 +39,10 @@ saved, licence-verified Wikimedia Commons image. No placeholders remain in use.
 | `public/images/pingyao.jpg` | Pingyao destination hero | lienyuan lee | CC BY 3.0 | https://commons.wikimedia.org/wiki/File:平遙古城_Pingyao_Ancient_City_-_panoramio_-_lienyuan_lee.jpg |
 | `public/images/wutai-shan.jpg` | Wutai Mountain destination hero | Baptiste Marcel | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Wutai_Shan_from_the_air_-_p-ad20080116-10h51m49s-cdr1b.jpg |
 | `public/images/linfen.jpg` | Linfen destination hero | ping lin | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Yaodu,_Linfen,_Shanxi,_China_-_panoramio.jpg |
+| `public/images/foguang-temple.jpg` | Foguang Temple (Black Myth) | Angus Cepka | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Foguang_Temple_9.JPG |
+| `public/images/nanchan-temple.jpg` | Nanchan Temple (Black Myth) | Zeus1234 | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Nanchan_Temple_1.JPG |
+| `public/images/shuanglin-temple.jpg` | Shuanglin Temple (Black Myth) | Zhangzhugang | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Pingyao_Shuanglin_Si_2013.08.26_09-17-59.jpg |
+| `public/images/yuhuang-temple.jpg` | Yuhuang Temple (Black Myth) | Windmemories | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:20250906_Yuhuang_Temple_04.jpg |
 
 Full per-image attribution (including license deed links and modification notes)
 is in [`IMAGE_CREDITS.md`](IMAGE_CREDITS.md).
@@ -89,14 +94,17 @@ landscape alternative returned no correctly-attributed candidate: other
 (for example the modern 华门 "China Gate" in Yaodu district, which is not 尧庙).
 The file is therefore retained despite being a low-resolution portrait.
 
-## Out of scope
+## Black Myth locations
 
-- The Black Myth locations without a dedicated attraction page (Foguang Temple,
-  Nanchan Temple, Shuanglin Temple, Yuhuang Temple) remain text-only on the
-  Black Myth page — no verified image has been assigned to them.
-- The Black Myth page reuses the attraction images (Yungang Grottoes, Hanging
-  Temple, Xiaoxitian, Guangsheng Temple, Yingxian Wooden Pagoda); no new image
-  files were added for the Black Myth page itself.
+The Black Myth page covers 9 locations. Five reuse their linked attraction's
+verified image (Yungang Grottoes, Hanging Temple, Xiaoxitian, Guangsheng Temple,
+Yingxian Wooden Pagoda). The remaining four — Foguang Temple, Nanchan Temple,
+Shuanglin Temple and Yuhuang Temple — had no dedicated attraction page, so each
+now has its own verified image added in V4.3 (see the table above).
+
+Note on identity: Jincheng has several same-named 玉皇庙 temples (Gaodu,
+Shizhang). The image used is from the "Fucheng Jade Emperor Temple" Commons
+category, matching the site in our data (Fucheng Village, Zezhou County).
 
 ## To change an image
 

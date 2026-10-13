@@ -26,6 +26,10 @@ Attribution for CC BY / CC BY-SA images is shown on the site under each image
 | `pingyao.jpg` | Pingyao Ancient City | 1920×1440 | lienyuan lee | CC BY 3.0 | https://creativecommons.org/licenses/by/3.0/ | https://commons.wikimedia.org/wiki/File:平遙古城_Pingyao_Ancient_City_-_panoramio_-_lienyuan_lee.jpg | `object-cover` crop |
 | `wutai-shan.jpg` | Wutai Mountain (aerial) | 1292×667 | Baptiste Marcel | CC BY-SA 3.0 | http://creativecommons.org/licenses/by-sa/3.0/ | https://commons.wikimedia.org/wiki/File:Wutai_Shan_from_the_air_-_p-ad20080116-10h51m49s-cdr1b.jpg | `object-cover` crop |
 | `linfen.jpg` | Linfen (Yaodu district) | 1920×1440 | ping lin | CC BY-SA 3.0 | https://creativecommons.org/licenses/by-sa/3.0/ | https://commons.wikimedia.org/wiki/File:Yaodu,_Linfen,_Shanxi,_China_-_panoramio.jpg | `object-cover` crop |
+| `foguang-temple.jpg` | Foguang Temple (East Hall) | 1920×1440 | Angus Cepka | CC BY-SA 3.0 | https://creativecommons.org/licenses/by-sa/3.0/ | https://commons.wikimedia.org/wiki/File:Foguang_Temple_9.JPG | 1920px thumbnail; `object-cover` crop |
+| `nanchan-temple.jpg` | Nanchan Temple (main hall) | 1920×1440 | Zeus1234 | CC BY-SA 3.0 | https://creativecommons.org/licenses/by-sa/3.0/ | https://commons.wikimedia.org/wiki/File:Nanchan_Temple_1.JPG | 1920px thumbnail; `object-cover` crop |
+| `shuanglin-temple.jpg` | Shuanglin Temple (Mahavira Hall) | 1920×1280 | Zhangzhugang | CC BY-SA 3.0 | https://creativecommons.org/licenses/by-sa/3.0/ | https://commons.wikimedia.org/wiki/File:Pingyao_Shuanglin_Si_2013.08.26_09-17-59.jpg | 1920px thumbnail; `object-cover` crop |
+| `yuhuang-temple.jpg` | Yuhuang Temple (first gate) | 1800×1200 | Windmemories | CC BY-SA 4.0 | https://creativecommons.org/licenses/by-sa/4.0/ | https://commons.wikimedia.org/wiki/File:20250906_Yuhuang_Temple_04.jpg | `object-cover` crop |
 
 ## Notes
 

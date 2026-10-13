@@ -1,5 +1,6 @@
 import type { Source } from "./source";
 import type { PrefectureId } from "./destination";
+import type { ImageAsset } from "./image";
 
 export type ConnectionStatus = "verified" | "unverified" | "rumored";
 
@@ -14,6 +15,8 @@ export interface BlackMythLocation {
   ticket_info: string | null;
   how_to_get_there: string | null;
   related_attraction_slug: string | null;
+  /** Licensed image for this location (used when no related attraction provides one). */
+  image: ImageAsset | null;
   latitude: number | null;
   longitude: number | null;
   notes: string | null;
