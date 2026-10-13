@@ -29,6 +29,9 @@ export function LastMileRoute({ route }: { route: TransportRoute }) {
           {route.approximate_duration ? (
             <p className="mt-1 text-sm text-muted">{route.approximate_duration}</p>
           ) : null}
+          {route.frequency ? (
+            <p className="mt-1 text-sm text-muted">{route.frequency}</p>
+          ) : null}
         </section>
       ) : null}
 

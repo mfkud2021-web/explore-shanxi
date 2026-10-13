@@ -67,19 +67,38 @@ export default async function TransportRoutePage({
         <header className="mt-6">
           <VerificationBadge status={route.verification_status} />
           <h1 className="mt-4 font-serif text-4xl font-semibold leading-tight tracking-tight">
-            {route.from}{" "}
-            {route.from_zh ? (
-              <span lang="zh" className="text-2xl font-normal text-subtle">
+            <span className="block" lang="en">
+              From {route.from} to {route.to}
+            </span>
+            {route.from_zh || route.to_zh ? (
+              <span
+                className="mt-2 block text-xl font-normal text-subtle"
+                lang="zh"
+                translate="no"
+              >
                 {route.from_zh}
-              </span>
-            ) : null}{" "}
-            → {route.to}{" "}
-            {route.to_zh ? (
-              <span lang="zh" className="text-2xl font-normal text-subtle">
+                {route.from_zh && route.to_zh ? " → " : ""}
                 {route.to_zh}
               </span>
             ) : null}
           </h1>
+          <div className="mt-4 rounded-lg border border-border bg-surface px-4 py-3 text-sm">
+            <p className="text-muted">
+              <span className="font-semibold text-foreground">
+                Confirm before you travel.
+              </span>{" "}
+              {isLastMile
+                ? "Bus times, fares, operating hours and departure frequencies can change, and some figures come from dated announcements — confirm each before you set out."
+                : "Train schedules, fares and frequencies can change — check 12306 for current trains and tickets before you travel."}
+            </p>
+            {route.verification_status === "verified" ? (
+              <p className="mt-1 text-subtle">
+                <span className="font-medium">Verified</span> means the route and its
+                stations are confirmed — it does not guarantee that every fare, time or
+                frequency is current.
+              </p>
+            ) : null}
+          </div>
         </header>
 
         {isLastMile ? (

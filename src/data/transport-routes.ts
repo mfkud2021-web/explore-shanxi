@@ -182,7 +182,7 @@ export const transportRoutes: TransportRoute[] = [
     approximate_duration: "≈40 min by shuttle; ≈25–30 min by taxi",
     departure_station: null,
     arrival_station: null,
-    frequency: "Shuttle roughly every 20 min during operating hours (announced 9:00–16:40)",
+    frequency: "Shuttle roughly every 20 min during operating hours (announced May 2025: 9:00–16:40 — confirm current hours)",
     summary:
       "The grottoes are about 16 km west of central Datong. A dedicated shuttle now runs from Datong South Station straight to the gate, which is the easiest option for a first-time visitor.",
     steps: [

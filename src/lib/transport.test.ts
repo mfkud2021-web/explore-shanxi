@@ -78,4 +78,19 @@ describe("transport route data", () => {
       [...LAST_MILE_SLUGS, "beijing-to-datong", "datong-to-taiyuan", "taiyuan-to-pingyao", "pingyao-to-xian"].sort(),
     );
   });
+
+  it("gives every route a distinct Chinese label for both endpoints", () => {
+    for (const r of transportRoutes) {
+      expect(r.from_zh).toBeTruthy();
+      expect(r.to_zh).toBeTruthy();
+      expect(r.from_zh).not.toBe(r.from);
+      expect(r.to_zh).not.toBe(r.to);
+    }
+  });
+
+  it("gives every last-mile route a departure frequency to display", () => {
+    for (const r of getLastMileTransportRoutes()) {
+      expect(r.frequency).toBeTruthy();
+    }
+  });
 });
