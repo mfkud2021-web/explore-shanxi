@@ -365,13 +365,18 @@ export const transportRoutes: TransportRoute[] = [
         detail:
           "Wutai uses real-name reservation (book 1–5 days ahead via the WeChat account '五台山游客服务中心'). Entry is about 135 CNY peak / 118 CNY off-season, valid about 2 days; private cars also need a reservation.",
       },
+      {
+        title: "Ride the free in-area shuttle to the temples",
+        detail:
+          "Inside the scenic area there are free shuttle buses. Board right after the ticket gate (检票口) — they depart continuously and run from the visitor centre to the Great White Pagoda (大白塔) at Taihuai town and around the core area.",
+      },
     ],
     public_transport:
       "Tourist shuttles (直通车) run to the Wutai visitor centre from Taiyuan Wusu Airport, Wutaishan Airport, Taiyuan South, Xinzhou West and Taiyuan stations, roughly 06:00–18:00 in both directions (book via the '山西文旅行' mini-program). From the existing Wutaishan Station (五台山站, near Fanshi/Shahe), a bus covers the roughly 45 km to the core in about 1 hour (about 25 CNY).",
     taxi_backup:
       "A taxi or chartered car from Xinzhou West to the core is about 80 km and takes about 1.5–2 hours (roughly 200–300 CNY; shared cars about 80–120 CNY per person). Show the driver 五台山游客中心 or 台怀镇.",
     return_journey:
-      "Return shuttles leave the visitor centre through the day; the Xinzhou round-trip package departs the core at 16:00 and 17:00. Confirm the last return time — the scenic area is large and the gate is far from the temples, so allow time to get back to the visitor centre.",
+      "The free in-area shuttle also runs back from the core to the visitor centre and gate — board it to return. Outward shuttles leave the visitor centre through the day; the Xinzhou round-trip package departs the core at 16:00 and 17:00. Confirm the last return time — the scenic area is large and the gate is far from the temples, so allow time to get back to the visitor centre.",
     tips: [
       "There is no railway to the core yet — every option involves a road transfer of at least about 1.5 hours.",
       "The new high-speed Wutaishan Station (雄忻高铁) is under construction and reported to open around March 2027; it is not usable in 2026.",
@@ -390,6 +395,11 @@ export const transportRoutes: TransportRoute[] = [
         question: "Which station should I use?",
         answer:
           "Xinzhou West (忻州西站) is the most practical for a shuttle connection. Do not confuse the existing conventional 五台山站 with the new high-speed station, which is still under construction.",
+      },
+      {
+        question: "Is there transport inside the scenic area?",
+        answer:
+          "Yes — free shuttle buses run inside the scenic area from the visitor centre to the Great White Pagoda (大白塔) at Taihuai town and around the core. Board right after the ticket gate; they depart continuously.",
       },
     ],
     sources: [SXGOV_WUTAI, XZRBW_WUTAI],
