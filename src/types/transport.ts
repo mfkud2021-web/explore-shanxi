@@ -9,6 +9,15 @@ export interface LastMileStep {
   detail: string;
 }
 
+export interface ReturnJourney {
+  where_to_board: string;
+  how_to_return: string;
+  booking_requirement: string;
+  last_departure: string;
+  fallback: string;
+  same_day_return: string;
+}
+
 export interface TransportRoute {
   slug: string;
   /** "intercity" = city→city rail leg; "last-mile" = station/hub → specific attraction. */
@@ -28,7 +37,7 @@ export interface TransportRoute {
   steps?: LastMileStep[];
   public_transport?: string | null;
   taxi_backup?: string | null;
-  return_journey?: string | null;
+  return_journey?: ReturnJourney | null;
   tips?: string[];
   attraction_slug?: string | null;
   // Shared

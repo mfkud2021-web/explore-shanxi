@@ -77,6 +77,20 @@ const QUNAR_LINFEN: Source = {
   source_level: 2,
 };
 
+const DATONG_SHUTTLE_NETWORK: Source = {
+  source_name: "Datong Municipal Government (dt.gov.cn) — scenic shuttle network now 29 lines across 11 Shanxi landmarks",
+  source_url: "https://www.dt.gov.cn/dtszf/bmdt/202605/7ce05661f9f4485a8962318384d61a85.shtml",
+  source_checked_at: VERIFIED_AT_V44,
+  source_level: 1,
+};
+
+const SHUOZHOU_YINGXIAN_REPLY: Source = {
+  source_name: "Yingxian Transportation Bureau reply via Shuozhou gov info disclosure (shuozhou.gov.cn) — shuttle buses arranged to match high-speed trains",
+  source_url: "http://szxxgk.shuozhou.gov.cn/bjsj/202409/t20240927_696585.shtml",
+  source_checked_at: VERIFIED_AT_V44,
+  source_level: 1,
+};
+
 export const transportRoutes: TransportRoute[] = [
   {
     slug: "beijing-to-datong",
@@ -206,8 +220,20 @@ export const transportRoutes: TransportRoute[] = [
       "The direct tourist shuttle (景区直通车) from Datong South Station runs about every 20 minutes (announced hours 9:00–16:40) and reaches the gate in about 40 minutes for about 10 CNY. City bus 603 (tourist line) also connects central Datong to the grottoes in about 40–50 minutes; its fare is not consistently documented (about 2–10 CNY).",
     taxi_backup:
       "A taxi or ride-hail from Datong South Station takes about 25–30 minutes and typically costs about 35–50 CNY. Show the driver the Chinese name 云冈石窟.",
-    return_journey:
-      "The shuttle returns from the grottoes to Datong South, calling at Datong Ancient City and Datong Museum on the way. If you miss the last shuttle, take city bus 603 back toward Datong or a taxi (about 35–50 CNY). Check the last shuttle time before you enter — it runs earlier than the grottoes' closing time.",
+    return_journey: {
+      where_to_board:
+        "From the grottoes' exit, walk about 5–10 minutes to the return shuttle stop; the shuttle also calls at Datong Ancient City and Datong Museum on the way back to Datong South.",
+      how_to_return:
+        "The same 景区直通车 shuttle returns to Datong South Station (10 CNY). Alternatively take city bus 603 back toward central Datong, or a taxi (about 35–50 CNY, 25–30 min).",
+      booking_requirement:
+        "Book via the '大同景区直通车' WeChat mini-program (or '晋游宝') — reserve ahead, as departures adjust to demand and seats are one-per-passenger with no standing room.",
+      last_departure:
+        "Announced hours are 9:00–16:40 (every ~20 min) from the May 2025 opening notice; the network was still running as of May 2026, but the current last return is not confirmed — it runs earlier than the grottoes' closing time, so confirm before you enter.",
+      fallback:
+        "If you miss the last shuttle, take city bus 603 back toward Datong or a taxi / ride-hail (about 35–50 CNY) to Datong South or your hotel.",
+      same_day_return:
+        "Realistic — allow 3–4 hours on site (2–3 for highlights), go in on a morning shuttle and return mid-afternoon, finishing before the last shuttle.",
+    },
     tips: [
       "Confirm the shuttle's current hours before you go — the 9:00–16:40 schedule is from its May 2025 opening announcement and may have changed.",
       "Yungang is reservation-only: there are no on-site ticket sales since 1 Jan 2025.",
@@ -228,7 +254,7 @@ export const transportRoutes: TransportRoute[] = [
           "Yes. On-site ticket sales stopped on 1 Jan 2025; book a real-name reservation via the WeChat mini-programs '云冈石窟文旅' or '云冈研究院'.",
       },
     ],
-    sources: [DATONG_GOV, DATONG_EVENING_NEWS, BENDIBAO_TY],
+    sources: [DATONG_GOV, DATONG_EVENING_NEWS, DATONG_SHUTTLE_NETWORK, BENDIBAO_TY],
     last_verified: VERIFIED_AT_V44,
     verification_status: "verified",
   },
@@ -267,8 +293,20 @@ export const transportRoutes: TransportRoute[] = [
       "A shuttle / 接驳 bus runs from Yingxian West Station to the pagoda (about 5 CNY, 20–25 minutes), generally timed to high-speed train arrivals. The exact bus line number is not reliably documented — confirm it at the station. There is no passenger rail into Ying County town, so the last leg is always by road.",
     taxi_backup:
       "A taxi or shared car from the station to the pagoda costs roughly 10–15 CNY per person (shared) and takes about 20–30 minutes. Show the driver 应县木塔.",
-    return_journey:
-      "Catch the shuttle back from the Muta pedestrian-street entrance (across the road) or near Ying County bus station (about 5 CNY). Leave at least an hour before your train — the shuttle follows train times, so a taxi is the safer fallback if you are short on time.",
+    return_journey: {
+      where_to_board:
+        "Board the return shuttle across the road from the drop-off point near the Muta pedestrian-street entrance; some shuttles transfer you at Ying County bus station (应县汽车站) first.",
+      how_to_return:
+        "A 5 CNY shuttle returns to Yingxian West Station. It has no fixed timetable — drivers match high-speed train departures, so ask station staff or the driver about the return timing (contact details are often posted on the bus).",
+      booking_requirement:
+        "No advance booking — board on the spot (5 CNY). Because it follows train times rather than a fixed timetable, confirm the return timing locally.",
+      last_departure:
+        "Return timings are not confirmed against an official timetable. The Yingxian Transportation Bureau states buses are arranged to match high-speed trains at Yingxian West; one traveller report puts the last return at about 16:30 (unverified) — confirm locally.",
+      fallback:
+        "If you miss the shuttle, take a taxi or shared car to Yingxian West (about 10–15 CNY, 20–30 min). Show the driver 应县西站.",
+      same_day_return:
+        "Realistic as a half-day trip — the pagoda visit is 1–2 hours — but leave at least an hour before your train, since the return shuttle follows train times and a taxi is the safer fallback.",
+    },
     tips: [
       "The station is about 20 km from the pagoda — do not plan on walking.",
       "Shuttle and bus details come from travel guides and are not confirmed against an official operator. Allow buffer time and confirm the line at the station.",
@@ -276,7 +314,7 @@ export const transportRoutes: TransportRoute[] = [
     ],
     attraction_slug: "yingxian-wooden-pagoda",
     notes: [],
-    sources: [BENDIBAO_TY],
+    sources: [SHUOZHOU_YINGXIAN_REPLY, BENDIBAO_TY],
     last_verified: VERIFIED_AT_V44,
     verification_status: "pending",
   },
@@ -315,8 +353,20 @@ export const transportRoutes: TransportRoute[] = [
       "Bus 108 from Pingyao Gucheng Station (about 1 CNY, 20–40 minutes) has separate north and south lines — confirm the direction with the driver. A shuttle / 摆渡 bus is sometimes available (about 10 CNY per trip), but availability varies.",
     taxi_backup:
       "A metered taxi to the old town costs roughly 20–30 CNY (15–20 minutes). Use the blue official taxis and insist on the meter or agree a price first. DiDi is unreliable in Pingyao; Amap (高德地图) ride-hailing is more reliable (about 20–35 CNY). Show the driver 平遥古城.",
-    return_journey:
-      "Return the same way: taxi or bus 108 back to Pingyao Gucheng Station. Check your train's departure station — high-speed trains leave from Pingyao Gucheng (平遥古城站), not Pingyao (平遥站).",
+    return_journey: {
+      where_to_board:
+        "From the old town, catch bus 108 at the gate you arrived at (north and south lines serve different gates) or hail a taxi from any gate.",
+      how_to_return:
+        "Bus 108 (about 1 CNY) returns to Pingyao Gucheng Station, or take a taxi (about 20–30 CNY, 15–20 min). Use the blue official taxis or Amap ride-hailing (DiDi is unreliable here).",
+      booking_requirement:
+        "No booking needed — bus 108 runs frequently and you pay on board.",
+      last_departure:
+        "Bus 108's last departure is roughly 19:30 (third-party timetable, updated 2024 — confirm on the day). Taxis and Amap ride-hail run later if you miss it.",
+      fallback:
+        "If you miss the last bus, take an official taxi or Amap ride-hail to the station. Check your train's departure station — high-speed trains leave from Pingyao Gucheng (平遥古城站), not Pingyao (平遥站).",
+      same_day_return:
+        "Very realistic — the old town is compact and the station is only about 10 km away, so a morning arrival and evening return is easy.",
+    },
     tips: [
       "Buy a ticket to 'Pingyao Gucheng' (平遥古城站), not 'Pingyao' (平遥站), if you want the high-speed line.",
       "The high-speed station is about 10 km out — there is no walking option.",
@@ -375,8 +425,20 @@ export const transportRoutes: TransportRoute[] = [
       "Tourist shuttles (直通车) run to the Wutai visitor centre from Taiyuan Wusu Airport, Wutaishan Airport, Taiyuan South, Xinzhou West and Taiyuan stations, roughly 06:00–18:00 in both directions (book via the '山西文旅行' mini-program). From the existing Wutaishan Station (五台山站, near Fanshi/Shahe), a bus covers the roughly 45 km to the core in about 1 hour (about 25 CNY).",
     taxi_backup:
       "A taxi or chartered car from Xinzhou West to the core is about 80 km and takes about 1.5–2 hours (roughly 200–300 CNY; shared cars about 80–120 CNY per person). Show the driver 五台山游客中心 or 台怀镇.",
-    return_journey:
-      "The free in-area shuttle also runs back from the core to the visitor centre and gate — board it to return. Outward shuttles leave the visitor centre through the day; the Xinzhou round-trip package departs the core at 16:00 and 17:00. Confirm the last return time — the scenic area is large and the gate is far from the temples, so allow time to get back to the visitor centre.",
+    return_journey: {
+      where_to_board:
+        "From the core, board the free in-area shuttle at Taihuai town to ride back to the visitor centre and ticket gate. The Xinzhou West round-trip package returns from the core area.",
+      how_to_return:
+        "From the visitor centre, outward shuttles leave through the day back to Xinzhou West (and Taiyuan). The Xinzhou round-trip package departs the core at 16:00 and 17:00.",
+      booking_requirement:
+        "The round-trip package should be booked in advance (via the '山西文旅行' mini-program). The free in-area shuttle needs no booking.",
+      last_departure:
+        "The package's 16:00/17:00 return is from its published schedule — confirm the current time when booking. The free in-area shuttle runs continuously, but the area is large; allow time to get back to the visitor centre.",
+      fallback:
+        "If you miss the last outward shuttle, a taxi or chartered car from the visitor centre / Taihuai town to Xinzhou West is about 80 km (roughly 200–300 CNY; shared cars about 80–120 CNY per person).",
+      same_day_return:
+        "Feasible as a day trip from Xinzhou West using the round-trip package (about 1.5 h each way), but the mountain is large and deserves more time — staying overnight in Taihuai town is recommended for a fuller visit.",
+    },
     tips: [
       "There is no railway to the core yet — every option involves a road transfer of at least about 1.5 hours.",
       "The new high-speed Wutaishan Station (雄忻高铁) is under construction and reported to open around March 2027; it is not usable in 2026.",
@@ -441,8 +503,20 @@ export const transportRoutes: TransportRoute[] = [
       "Chengxi bus station (城西客运站) runs buses to Xi County (about 2.5 h) roughly 07:30–17:00; from Xi County bus station a roughly 3 km taxi (about 10 CNY) reaches the temple. A Linfen tourism shuttle (旅游直通车, published 2026 by the Linfen culture & tourism bureau) runs Linfen ⇋ Xiaoxitian with two morning departures and early-afternoon returns — about 123 CNY adult including entry, return transport and insurance.",
     taxi_backup:
       "A chartered car or taxi from Linfen to Xi County takes about 2.5 hours each way; arrange the return in advance (drivers may not wait, and return taxis from Xi County are limited). Show the driver 隰县小西天.",
-    return_journey:
-      "The tourism shuttle returns around 12:00/12:30 (confirm when booking). If travelling by public bus, confirm the last Xi County → Linfen bus before you set out — it may be earlier than you expect, and there is no rail fallback.",
+    return_journey: {
+      where_to_board:
+        "If you took the tourism shuttle, return from the temple's drop-off point. If you took the public bus, board at Xi County bus station (about 3 km from the temple, a ~10 CNY taxi).",
+      how_to_return:
+        "The tourism shuttle returns to Linfen around 12:00/12:30 (confirm when booking). By public bus, take the Xi County → Linfen bus from Xi County bus station (about 2.5 h).",
+      booking_requirement:
+        "The direct tourism shuttle should be pre-booked (a combined ~123 CNY ticket covers entry, return transport and insurance). Public buses are paid on board.",
+      last_departure:
+        "The Xi County → Linfen bus runs roughly 07:30–17:00, but the last departure is not confirmed against an official timetable — confirm it before you set out. There is no rail fallback.",
+      fallback:
+        "If you miss the bus or shuttle, arrange a taxi or chartered car back to Linfen (about 2.5 h); return taxis from Xi County are limited, so arrange the return in advance.",
+      same_day_return:
+        "Realistic but a full-day commitment (about 2.5 h each way). The pre-booked shuttle with an early-afternoon return is the most practical option.",
+    },
     tips: [
       "Xi County has no passenger rail — every option is by road (about 2.5 h each way).",
       "The direct shuttle is the most practical option for overseas visitors: pre-book and confirm the return time.",

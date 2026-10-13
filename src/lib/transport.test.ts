@@ -16,6 +16,14 @@ const LAST_MILE_SLUGS = [
   "linfen-to-xiaoxitian",
 ];
 
+function originToken(from: string) {
+  return from
+    .replace(/\(.*\)/, "")
+    .trim()
+    .split(" ")[0]
+    .toLowerCase();
+}
+
 describe("transport route data", () => {
   it("has unique slugs", () => {
     const slugs = transportRoutes.map((r) => r.slug);
@@ -44,6 +52,27 @@ describe("transport route data", () => {
       expect(r.taxi_backup).toBeTruthy();
       expect(r.return_journey).toBeTruthy();
       expect(r.recommended_transport).toBeTruthy();
+    }
+  });
+
+  it("gives every last-mile route a full structured return journey", () => {
+    for (const r of getLastMileTransportRoutes()) {
+      const rj = r.return_journey;
+      expect(rj).toBeTruthy();
+      expect(rj!.where_to_board).toBeTruthy();
+      expect(rj!.how_to_return).toBeTruthy();
+      expect(rj!.booking_requirement).toBeTruthy();
+      expect(rj!.last_departure).toBeTruthy();
+      expect(rj!.fallback).toBeTruthy();
+      expect(rj!.same_day_return).toBeTruthy();
+    }
+  });
+
+  it("ties each return journey back to its origin hub", () => {
+    for (const r of getLastMileTransportRoutes()) {
+      const rj = r.return_journey!;
+      const text = `${rj.how_to_return} ${rj.fallback}`.toLowerCase();
+      expect(text).toContain(originToken(r.from));
     }
   });
 
