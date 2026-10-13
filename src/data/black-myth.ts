@@ -58,6 +58,7 @@ export const blackMythLocations: BlackMythLocation[] = [
     can_visit: true,
     connection_status: "verified",
     ticket_info: "120 CNY peak / 100 CNY off-season (adult)",
+    visit_duration: "≈ 2–3 hours",
     how_to_get_there: "From Datong: city bus 3 or tourist bus 603 (~40–50 min); taxi ~30–40 min.",
     related_attraction_slug: "yungang-grottoes",
     image: null,
@@ -77,6 +78,7 @@ export const blackMythLocations: BlackMythLocation[] = [
     can_visit: true,
     connection_status: "verified",
     ticket_info: "115 CNY (entry + climbing)",
+    visit_duration: "≈ 1–2 hours",
     how_to_get_there: "From Datong: bus to Hunyuan County (~1.5h), then a short taxi; or taxi/day tour (~1h 20m).",
     related_attraction_slug: "hanging-temple",
     image: null,
@@ -96,6 +98,7 @@ export const blackMythLocations: BlackMythLocation[] = [
     can_visit: true,
     connection_status: "verified",
     ticket_info: "40 CNY (full-price adult); 20 CNY (half-price)",
+    visit_duration: "≈ 1–2 hours",
     how_to_get_there:
       "In Wutai County (五台县), outside the Wutai Mountain core area. From Wutai County, take the Wutai–Fanshi bus to Yanjiazhai village (阎家寨) then walk ~2 km, or take a taxi/chartered car. Closed Mondays.",
     related_attraction_slug: null,
@@ -122,6 +125,7 @@ export const blackMythLocations: BlackMythLocation[] = [
     can_visit: true,
     connection_status: "verified",
     ticket_info: "20 CNY (full-price adult); 10 CNY (half-price)",
+    visit_duration: "≈ 1 hour",
     how_to_get_there:
       "In Wutai County (五台县), outside the Wutai Mountain core area. From Wutai County bus station, take a local bus to Guojiazhai village (郭家寨) then walk ~500 m, or take a taxi/chartered car. Closed Mondays.",
     related_attraction_slug: null,
@@ -148,6 +152,7 @@ export const blackMythLocations: BlackMythLocation[] = [
     can_visit: true,
     connection_status: "verified",
     ticket_info: "≈35 CNY (separate from the Pingyao 125 CNY combo ticket)",
+    visit_duration: "≈ 1–2 hours",
     how_to_get_there:
       "About 6 km from Pingyao Ancient City. Take bus 108 (north line) or a short taxi from Pingyao.",
     related_attraction_slug: null,
@@ -174,6 +179,7 @@ export const blackMythLocations: BlackMythLocation[] = [
     can_visit: true,
     connection_status: "verified",
     ticket_info: "35 CNY (full-price adult); 18 CNY (half-price)",
+    visit_duration: "≈ 1 hour",
     how_to_get_there:
       "In Xi County (隰县), Linfen. Take a long-distance bus from Linfen (城西客运站) to Xi County (~2.5–3 h), then a short taxi (~10 min) to the temple on Fenghuang Mountain; or join a Linfen–Xiaoxitian day-tour bus.",
     related_attraction_slug: "xiaoxitian-temple",
@@ -194,6 +200,7 @@ export const blackMythLocations: BlackMythLocation[] = [
     can_visit: true,
     connection_status: "verified",
     ticket_info: "≈70 CNY (sources differ 55–70)",
+    visit_duration: "≈ 1–2 hours",
     how_to_get_there:
       "In Hongdong County (洪洞县), Linfen. About 1–1.5h from central Linfen by bus or taxi; confirm local transport.",
     related_attraction_slug: "guangsheng-temple",
@@ -214,6 +221,7 @@ export const blackMythLocations: BlackMythLocation[] = [
     can_visit: true,
     connection_status: "verified",
     ticket_info: "Free — real-name reservation required",
+    visit_duration: "≈ 1 hour",
     how_to_get_there:
       "In Fucheng Village (府城村), Zezhou County, Jincheng. About 20–30 minutes by car from central Jincheng; bus 19 serves Fucheng village.",
     related_attraction_slug: null,
@@ -240,6 +248,7 @@ export const blackMythLocations: BlackMythLocation[] = [
     can_visit: true,
     connection_status: "verified",
     ticket_info: "50 CNY (full-price adult); 25 CNY (half-price)",
+    visit_duration: "≈ 1 hour",
     how_to_get_there:
       "In Ying County (应县), Shuozhou. High-speed rail from Datong South to Yingxian West (~20–30 min), then bus 3 (~5 CNY) or a short taxi (~10 min) to the pagoda.",
     related_attraction_slug: "yingxian-wooden-pagoda",

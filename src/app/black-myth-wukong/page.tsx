@@ -93,6 +93,10 @@ export default function BlackMythPage() {
           </div>
         )}
 
+        <p className="mt-6 text-xs text-subtle">
+          Visit durations are rough estimates (marked “≈”), not verified figures.
+        </p>
+
         <div className="mt-12 max-w-3xl">
           <FaqSection faqs={BLACK_MYTH_FAQS} />
         </div>

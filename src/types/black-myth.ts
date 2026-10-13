@@ -13,6 +13,8 @@ export interface BlackMythLocation {
   can_visit: boolean | null;
   connection_status: ConnectionStatus;
   ticket_info: string | null;
+  /** Rough visit duration, marked with "≈" as an estimate (not a sourced figure). */
+  visit_duration: string | null;
   how_to_get_there: string | null;
   related_attraction_slug: string | null;
   /** Licensed image for this location (used when no related attraction provides one). */

@@ -92,6 +92,9 @@ export function BlackMythCard({
           <MetaRow label="Ticket">
             {location.ticket_info ?? <span className="italic text-pending">Not verified</span>}
           </MetaRow>
+          {location.visit_duration ? (
+            <MetaRow label="Typical visit">{location.visit_duration}</MetaRow>
+          ) : null}
         </dl>
 
         <details className="group mt-4 border-t border-border pt-4">
