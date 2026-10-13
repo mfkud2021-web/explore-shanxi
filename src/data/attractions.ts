@@ -470,7 +470,7 @@ export const attractions: Attraction[] = [
     nearest_railway_station:
       "Xinzhou West Station (忻州西站), then ~1.5–2h bus; or Wutaishan Station (五台山站, ~40 km)",
     transportation:
-      "Bus from Xinzhou West Station (~1.5–2h); private cars are restricted in the core area during peak season.",
+      "Bus from Xinzhou West Station (~1.5–2h); private cars are restricted in the core area during peak season. Inside the scenic area, free shuttle buses run from the visitor centre to the Great White Pagoda (大白塔) at Taihuai town and around the core — board right after the ticket gate (检票口); they depart continuously.",
     recommended_visit_duration: "2–3 days (1 day for core temples only)",
     best_time_to_visit: null,
     accessibility: null,
@@ -520,7 +520,7 @@ export const attractions: Attraction[] = [
       {
         question: "How do I get there?",
         answer:
-          "Take a bus from Xinzhou West Station (about 1.5–2 hours) or from Wutaishan Station (about 40 km away). Private cars are restricted in the core area during peak season.",
+          "Take a bus from Xinzhou West Station (about 1.5–2 hours) or from Wutaishan Station (about 40 km away). Private cars are restricted in the core area during peak season. Inside the scenic area, free shuttle buses run from the visitor centre to the Great White Pagoda (大白塔) at Taihuai town and around the core — board right after the ticket gate (检票口); they depart continuously.",
       },
       {
         question: "How long should I allow for a visit?",
