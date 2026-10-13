@@ -9,6 +9,7 @@ import { VerificationBadge } from "@/components/ui/VerificationBadge";
 import { VerifiedValue } from "@/components/ui/VerifiedValue";
 import { SourceBlock } from "@/components/ui/SourceBlock";
 import { FaqSection } from "@/components/ui/FaqSection";
+import { LastMileRoute } from "@/components/transport/LastMileRoute";
 import { formatDate } from "@/lib/format";
 
 export function generateStaticParams() {
@@ -23,9 +24,13 @@ export async function generateMetadata({
   const { slug } = await params;
   const r = getTransportRouteBySlug(slug);
   if (!r) return {};
+  const description =
+    r.route_type === "last-mile"
+      ? `Step-by-step guide for getting from ${r.from} to ${r.to}, including public transport, taxis and the return journey.`
+      : `Recommended transport, stations and what to check when travelling from ${r.from} to ${r.to}.`;
   return buildMetadata({
     title: `${r.from} to ${r.to} — How to Travel`,
-    description: `Recommended transport, stations and what to check when travelling from ${r.from} to ${r.to}.`,
+    description,
     path: `/transport/${r.slug}`,
   });
 }
@@ -38,6 +43,8 @@ export default async function TransportRoutePage({
   const { slug } = await params;
   const route = getTransportRouteBySlug(slug);
   if (!route) notFound();
+
+  const isLastMile = route.route_type === "last-mile";
 
   return (
     <>
@@ -75,66 +82,90 @@ export default async function TransportRoutePage({
           </h1>
         </header>
 
-        <dl className="mt-10 divide-y divide-border rounded-xl border border-border bg-surface text-sm">
-          <div className="flex items-baseline justify-between gap-4 px-5 py-4">
-            <dt className="text-muted">Recommended transport</dt>
-            <dd className="font-medium">
-              <VerifiedValue value={route.recommended_transport} />
-            </dd>
-          </div>
-          <div className="flex items-baseline justify-between gap-4 px-5 py-4">
-            <dt className="text-muted">Approximate duration</dt>
-            <dd className="font-medium">
-              <VerifiedValue value={route.approximate_duration} />
-            </dd>
-          </div>
-          <div className="flex items-baseline justify-between gap-4 px-5 py-4">
-            <dt className="text-muted">Departure station</dt>
-            <dd className="font-medium">
-              <VerifiedValue value={route.departure_station} />
-            </dd>
-          </div>
-          <div className="flex items-baseline justify-between gap-4 px-5 py-4">
-            <dt className="text-muted">Arrival station</dt>
-            <dd className="font-medium">
-              <VerifiedValue value={route.arrival_station} />
-            </dd>
-          </div>
-          <div className="flex items-baseline justify-between gap-4 px-5 py-4">
-            <dt className="text-muted">Frequency</dt>
-            <dd className="font-medium">
-              <VerifiedValue value={route.frequency} />
-            </dd>
-          </div>
-          <div className="flex items-baseline justify-between gap-4 px-5 py-4">
-            <dt className="text-muted">Last verified</dt>
-            <dd className="font-medium">
-              <VerifiedValue value={formatDate(route.last_verified)} />
-            </dd>
-          </div>
-          <div className="px-5 py-4">
-            <dt className="text-muted">Notes</dt>
-            <dd className="mt-1.5 space-y-1 text-foreground">
-              {route.notes.length > 0 ? (
-                route.notes.map((n, i) => <p key={i}>{n}</p>)
-              ) : (
-                <VerifiedValue value={null} />
-              )}
-            </dd>
-          </div>
-          <div className="px-5 py-4">
-            <dt className="text-muted">Sources</dt>
-            <dd className="mt-1.5">
-              <SourceBlock sources={route.sources} />
-            </dd>
-          </div>
-        </dl>
+        {isLastMile ? (
+          <div className="mt-10 space-y-10">
+            <LastMileRoute route={route} />
 
-        {route.faq && route.faq.length > 0 ? (
-          <div className="mt-12">
-            <FaqSection faqs={route.faq} />
+            <section>
+              <h2 className="font-serif text-xl font-semibold">Sources</h2>
+              <div className="mt-3 rounded-xl border border-border bg-surface p-5">
+                <SourceBlock sources={route.sources} />
+              </div>
+              {route.last_verified ? (
+                <p className="mt-3 text-sm text-subtle">
+                  Last verified {formatDate(route.last_verified)}.
+                </p>
+              ) : null}
+            </section>
+
+            {route.faq && route.faq.length > 0 ? (
+              <FaqSection faqs={route.faq} />
+            ) : null}
           </div>
-        ) : null}
+        ) : (
+          <>
+            <dl className="mt-10 divide-y divide-border rounded-xl border border-border bg-surface text-sm">
+              <div className="flex items-baseline justify-between gap-4 px-5 py-4">
+                <dt className="text-muted">Recommended transport</dt>
+                <dd className="font-medium">
+                  <VerifiedValue value={route.recommended_transport} />
+                </dd>
+              </div>
+              <div className="flex items-baseline justify-between gap-4 px-5 py-4">
+                <dt className="text-muted">Approximate duration</dt>
+                <dd className="font-medium">
+                  <VerifiedValue value={route.approximate_duration} />
+                </dd>
+              </div>
+              <div className="flex items-baseline justify-between gap-4 px-5 py-4">
+                <dt className="text-muted">Departure station</dt>
+                <dd className="font-medium">
+                  <VerifiedValue value={route.departure_station} />
+                </dd>
+              </div>
+              <div className="flex items-baseline justify-between gap-4 px-5 py-4">
+                <dt className="text-muted">Arrival station</dt>
+                <dd className="font-medium">
+                  <VerifiedValue value={route.arrival_station} />
+                </dd>
+              </div>
+              <div className="flex items-baseline justify-between gap-4 px-5 py-4">
+                <dt className="text-muted">Frequency</dt>
+                <dd className="font-medium">
+                  <VerifiedValue value={route.frequency} />
+                </dd>
+              </div>
+              <div className="flex items-baseline justify-between gap-4 px-5 py-4">
+                <dt className="text-muted">Last verified</dt>
+                <dd className="font-medium">
+                  <VerifiedValue value={formatDate(route.last_verified)} />
+                </dd>
+              </div>
+              <div className="px-5 py-4">
+                <dt className="text-muted">Notes</dt>
+                <dd className="mt-1.5 space-y-1 text-foreground">
+                  {route.notes.length > 0 ? (
+                    route.notes.map((n, i) => <p key={i}>{n}</p>)
+                  ) : (
+                    <VerifiedValue value={null} />
+                  )}
+                </dd>
+              </div>
+              <div className="px-5 py-4">
+                <dt className="text-muted">Sources</dt>
+                <dd className="mt-1.5">
+                  <SourceBlock sources={route.sources} />
+                </dd>
+              </div>
+            </dl>
+
+            {route.faq && route.faq.length > 0 ? (
+              <div className="mt-12">
+                <FaqSection faqs={route.faq} />
+              </div>
+            ) : null}
+          </>
+        )}
       </div>
     </>
   );

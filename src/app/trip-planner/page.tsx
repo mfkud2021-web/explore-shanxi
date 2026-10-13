@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { RoutePlanner } from "@/components/tools/RoutePlanner";
+import { getLastMileTransportRoutes } from "@/lib/data-access";
 import { buildMetadata } from "@/lib/seo";
 import { faqPage } from "@/lib/schema";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -55,6 +56,8 @@ const TRIP_PLANNER_FAQS = [
 ];
 
 export default function TripPlannerPage() {
+  const lastMile = getLastMileTransportRoutes();
+
   return (
     <>
       <JsonLd data={faqPage(TRIP_PLANNER_FAQS)} />
@@ -105,6 +108,34 @@ export default function TripPlannerPage() {
             before you travel. The planner above gives a personalised version for your
             own start, end and interests.
           </p>
+        </section>
+
+        <section className="mt-12">
+          <h2 className="font-serif text-2xl font-semibold">
+            Getting from the station to each site
+          </h2>
+          <p className="mt-3 leading-relaxed text-muted">
+            The last leg of most Shanxi journeys is the transfer from the railway
+            station to the site itself. These step-by-step guides cover the main ones,
+            including how to get back.
+          </p>
+          <ul className="mt-4 space-y-2">
+            {lastMile.map((r) => (
+              <li key={r.slug}>
+                <Link
+                  href={`/transport/${r.slug}`}
+                  className="flex items-center justify-between rounded-lg border border-border bg-surface px-4 py-3 transition-colors hover:border-accent"
+                >
+                  <span className="text-sm">
+                    {r.from} → {r.to}
+                  </span>
+                  <span className="text-accent" aria-hidden="true">
+                    →
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </section>
 
         <div className="mt-12">

@@ -6,6 +6,7 @@ import {
   getAttractionBySlug,
   getAttractionSlugs,
   getAttractionsBySlugs,
+  getLastMileRoutesForAttraction,
 } from "@/lib/data-access";
 import { getRegion } from "@/data/regions";
 import { buildMetadata } from "@/lib/seo";
@@ -48,6 +49,7 @@ export default async function AttractionPage({
   if (!attraction) notFound();
 
   const related = getAttractionsBySlugs(attraction.related_attractions);
+  const lastMileRoutes = getLastMileRoutesForAttraction(attraction.slug);
 
   const region = getRegion(attraction.region);
   const locationText =
@@ -137,6 +139,24 @@ export default async function AttractionPage({
               <p className="mt-3 leading-relaxed text-foreground">
                 <VerifiedValue value={attraction.transportation} />
               </p>
+              {lastMileRoutes.length > 0 ? (
+                <div className="mt-4 space-y-2">
+                  {lastMileRoutes.map((r) => (
+                    <Link
+                      key={r.slug}
+                      href={`/transport/${r.slug}`}
+                      className="flex items-center justify-between rounded-lg border border-border bg-surface px-4 py-3 transition-colors hover:border-accent"
+                    >
+                      <span className="text-sm">
+                        Station-to-site guide: {r.from} → {r.to}
+                      </span>
+                      <span className="text-accent" aria-hidden="true">
+                        →
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              ) : null}
             </section>
 
             <section>

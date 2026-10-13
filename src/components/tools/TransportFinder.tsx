@@ -1,13 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { transportRoutes } from "@/data/transport-routes";
+import { getIntercityTransportRoutes } from "@/lib/data-access";
 import { formatDate } from "@/lib/format";
 import { VerifiedValue } from "@/components/ui/VerifiedValue";
 import { SourceBlock } from "@/components/ui/SourceBlock";
 
-const FROM = [...new Set(transportRoutes.map((r) => r.from))];
-const TO = [...new Set(transportRoutes.map((r) => r.to))];
+const INTERCITY = getIntercityTransportRoutes();
+
+const FROM = [...new Set(INTERCITY.map((r) => r.from))];
+const TO = [...new Set(INTERCITY.map((r) => r.to))];
 
 function Field({ label, value }: { label: string; value: string | null }) {
   return (
@@ -23,7 +25,7 @@ function Field({ label, value }: { label: string; value: string | null }) {
 export function TransportFinder() {
   const [from, setFrom] = useState(FROM[0]);
   const [to, setTo] = useState(TO[0]);
-  const route = transportRoutes.find((r) => r.from === from && r.to === to);
+  const route = INTERCITY.find((r) => r.from === from && r.to === to);
 
   return (
     <div className="rounded-xl border border-border bg-surface p-6">

@@ -44,6 +44,20 @@ export function getTransportRouteSlugs() {
   return transportRoutes.map((r) => r.slug);
 }
 
+export function getIntercityTransportRoutes() {
+  return transportRoutes.filter((r) => r.route_type === "intercity");
+}
+
+export function getLastMileTransportRoutes() {
+  return transportRoutes.filter((r) => r.route_type === "last-mile");
+}
+
+export function getLastMileRoutesForAttraction(attractionSlug: string) {
+  return transportRoutes.filter(
+    (r) => r.route_type === "last-mile" && r.attraction_slug === attractionSlug,
+  );
+}
+
 export function getBlackMythLocations() {
   return blackMythLocations;
 }

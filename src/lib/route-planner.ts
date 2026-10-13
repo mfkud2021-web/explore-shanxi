@@ -1,6 +1,6 @@
 import { destinations } from "@/data/destinations";
 import { attractions } from "@/data/attractions";
-import { transportRoutes } from "@/data/transport-routes";
+import { getIntercityTransportRoutes } from "@/lib/data-access";
 import type {
   AttractionCategory,
   Destination,
@@ -9,6 +9,8 @@ import type {
   RoutePlan,
   RouteStop,
 } from "@/types";
+
+const transportRoutes = getIntercityTransportRoutes();
 
 // North-to-south sample corridor. The first three are on the verified
 // high-speed rail line (Beijing–Datong–Taiyuan–Pingyao–Xi'an); the last two are
