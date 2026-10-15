@@ -14,6 +14,7 @@ const LAST_MILE_SLUGS = [
   "pingyao-gucheng-to-ancient-city",
   "wutai-stations-to-mount-wutai",
   "linfen-to-xiaoxitian",
+  "datong-to-hanging-temple",
 ];
 
 function originToken(from: string) {
@@ -40,7 +41,7 @@ describe("transport route data", () => {
     ]);
   });
 
-  it("adds the five last-mile station routes", () => {
+  it("adds the six last-mile station routes", () => {
     const lastMile = getLastMileTransportRoutes();
     expect(lastMile.map((r) => r.slug)).toEqual(LAST_MILE_SLUGS);
   });
@@ -99,7 +100,9 @@ describe("transport route data", () => {
     expect(getLastMileRoutesForAttraction("xiaoxitian-temple").map((r) => r.slug)).toEqual([
       "linfen-to-xiaoxitian",
     ]);
-    expect(getLastMileRoutesForAttraction("hanging-temple")).toEqual([]);
+    expect(getLastMileRoutesForAttraction("hanging-temple").map((r) => r.slug)).toEqual([
+      "datong-to-hanging-temple",
+    ]);
   });
 
   it("exposes every route through the sitemap slug list", () => {

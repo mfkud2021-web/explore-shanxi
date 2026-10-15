@@ -3,6 +3,7 @@ import type { Attraction } from "@/types";
 const VERIFIED_AT = "2026-10-07";
 const VERIFIED_AT_V31 = "2026-10-11";
 const VERIFIED_AT_V42 = "2026-10-12";
+const VERIFIED_AT_V5 = "2026-10-15";
 
 export const attractions: Attraction[] = [
   {
@@ -870,7 +871,7 @@ export const attractions: Attraction[] = [
     category: "ancient-architecture",
     short_description: "The world's oldest and tallest surviving wooden pagoda, built in 1056 during the Liao dynasty.",
     description:
-      "Yingxian Wooden Pagoda (应县木塔), officially the Sakyamuni Pagoda of Fogong Temple (佛宫寺释迦塔), is a Liao-dynasty timber pagoda in Ying County, Shuozhou, in northern Shanxi. Built in 1056, it is the oldest and tallest surviving wooden pagoda in the world. The octagonal pagoda stands about 67 metres tall and has five visible storeys with additional intermediate mezzanine levels, built almost entirely of timber on an intricate system of bracket sets (斗拱). It is one of the 27 Shanxi sites on the official Black Myth: Wukong location list.",
+      "Yingxian Wooden Pagoda (应县木塔), officially the Sakyamuni Pagoda of Fogong Temple (佛宫寺释迦塔), is a Liao-dynasty timber pagoda in Ying County, Shuozhou, in northern Shanxi. Built in 1056, it is the oldest and tallest surviving wooden pagoda in the world. The octagonal pagoda stands about 67 metres tall and has five visible storeys with additional intermediate mezzanine levels, built almost entirely of timber on an intricate system of bracket sets (斗拱). For conservation, only the ground floor is open to visitors — the upper storeys cannot be climbed. It is one of the 27 Shanxi sites on the official Black Myth: Wukong location list.",
     latitude: 39.5653,
     longitude: 113.1819,
     opening_hours: null,
@@ -891,9 +892,15 @@ export const attractions: Attraction[] = [
     recommended_visit_duration: "1–2 hours (estimate)",
     best_time_to_visit: null,
     accessibility: null,
-    last_verified: VERIFIED_AT_V42,
+    last_verified: VERIFIED_AT_V5,
     verification_status: "pending",
     official_sources: [
+      {
+        source_name: "People's Daily (people.com.cn) — the pagoda's ground floor only is open to visitors",
+        source_url: "http://paper.people.com.cn/rmrb/pc/content/202608/18/content_30175510.html",
+        source_checked_at: VERIFIED_AT_V5,
+        source_level: 1,
+      },
       {
         source_name: "Shanxi Provincial Cultural Relics Bureau — 'Follow Wukong through Shanxi' location list",
         source_url: "http://wwj.shanxi.gov.cn/gzdt/szdt/202408/t20240821_9637797.shtml",
@@ -935,6 +942,11 @@ export const attractions: Attraction[] = [
         question: "What is the Yingxian Wooden Pagoda?",
         answer:
           "It is the oldest and tallest surviving wooden pagoda in the world. Officially the Sakyamuni Pagoda of Fogong Temple (佛宫寺释迦塔), it was built in 1056 during the Liao dynasty and stands about 67 metres tall.",
+      },
+      {
+        question: "Can I climb the pagoda?",
+        answer:
+          "No — for conservation, only the ground floor is open to visitors and the upper storeys cannot be climbed.",
       },
       {
         question: "Where is it?",

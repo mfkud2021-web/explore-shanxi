@@ -51,7 +51,11 @@ describe("buildRoute", () => {
   it("derives highlights from real attraction data", () => {
     const plan = buildRoute({ origin: "beijing", days: 3, next: "xian", interests: [] });
     const datong = plan.stops.find((s) => s.city === "Datong");
-    expect(datong?.highlights).toEqual(["Yungang Grottoes", "Hanging Temple"]);
+    expect(datong?.highlights).toEqual([
+      "Yungang Grottoes",
+      "Hanging Temple",
+      "Yingxian Wooden Pagoda",
+    ]);
   });
 
   it("marks stops that match a Black Myth interest", () => {

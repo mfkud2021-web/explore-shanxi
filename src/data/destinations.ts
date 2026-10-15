@@ -10,9 +10,9 @@ export const destinations: Destination[] = [
     prefecture: "datong",
     tagline: "Ancient capital of the Northern Wei, gateway to the Yungang Grottoes",
     summary:
-      "Datong is a city in northern Shanxi and a former imperial capital. It is the main base for visiting the UNESCO-listed Yungang Grottoes and the Hanging Temple, two of China's most significant surviving ancient monuments.",
+      "Datong is a city in northern Shanxi and a former imperial capital. It is the main base for visiting the UNESCO-listed Yungang Grottoes, the cliffside Hanging Temple and the Yingxian Wooden Pagoda — three of China's most significant surviving ancient monuments.",
     recommended_stay: "2–3 days",
-    major_attractions: ["yungang-grottoes", "hanging-temple"],
+    major_attractions: ["yungang-grottoes", "hanging-temple", "yingxian-wooden-pagoda"],
     transport_hint: "High-speed rail from Beijing and Taiyuan",
     hero_image: {
       url: "/images/datong.jpg",
@@ -56,6 +56,59 @@ export const destinations: Destination[] = [
         answer:
           "It is possible but rushed. The Yungang Grottoes are about 30–40 minutes west of Datong, while the Hanging Temple is in Hunyuan County about 1 hour 20 minutes away by car. A private car or day tour with an early start is the most practical way to combine both; many travellers prefer to give each a full half-day on separate days.",
       },
+      {
+        question: "Where should I stay in Datong?",
+        answer:
+          "Inside the Ancient City wall near the Drum Tower or Huayan Temple is the most convenient (but pricier in peak season); outside the west or south gates is cheaper and still within about 1 km of the main sights.",
+      },
+    ],
+    itinerary_intro:
+      "Two days is the practical minimum — one for the Yungang Grottoes and one for the Hanging Temple. A third day comfortably adds the Yingxian Wooden Pagoda. One day only covers the Yungang Grottoes plus the free city wall.",
+    itineraries: [
+      {
+        title: "Day 1 — Yungang Grottoes + the city wall",
+        description:
+          "Spend the morning at the Yungang Grottoes (allow 3–4 hours), reached by the direct shuttle from Datong South Station or bus 603. Return to town in the afternoon, then walk the Datong Ancient City Wall — free since 13 June 2026.",
+      },
+      {
+        title: "Day 2 — Hanging Temple day trip",
+        description:
+          "Set out early for Hunyuan County: coach to Hunyuan, then a short taxi to the Hengshan Visitor Centre and the 20 CNY shuttle to the temple (allow 1.5–3 hours on site). Book the climbing ticket ahead — it is capped at 2,475 per day. Return to Datong in the evening.",
+      },
+      {
+        title: "Day 3 — Yingxian Wooden Pagoda (half-day)",
+        description:
+          "Take high-speed rail from Datong South to Yingxian West (about 20–30 minutes), then the station shuttle to the pagoda. The visit is 1–2 hours — note only the ground floor is open to visitors. Return to Datong, or continue south to Taiyuan.",
+      },
+    ],
+    getting_around: [
+      {
+        label: "Beijing to Datong — high-speed rail",
+        href: "/transport/beijing-to-datong",
+        note: "≈1h45m to Datong South Station",
+      },
+      {
+        label: "Datong to the Hanging Temple — bus, taxi & shuttle",
+        href: "/transport/datong-to-hanging-temple",
+        note: "Coach + visitor-centre shuttle",
+      },
+      {
+        label: "Datong South to the Yungang Grottoes",
+        href: "/transport/datong-south-to-yungang-grottoes",
+        note: "Direct shuttle ≈40 min",
+      },
+      {
+        label: "Datong to the Yingxian Wooden Pagoda",
+        href: "/transport/yingxian-west-to-wooden-pagoda",
+        note: "High-speed rail + station shuttle",
+      },
+    ],
+    where_to_stay:
+      "The most convenient base is inside the Ancient City wall, near the Drum Tower or Huayan Temple — walkable but pricier in peak season. Outside the wall (near the west or south gates) is cheaper and still within about 1 km of the main sights. These are general guidebook suggestions, not verified pricing.",
+    practical_tips: [
+      "All three major sights use real-name reservation — book before you set out. Yungang stopped on-site ticket sales on 1 January 2025; Hanging Temple climbing is capped at 2,475 per day.",
+      "Show drivers the Chinese names: 云冈石窟 (Yungang Grottoes), 悬空寺 (Hanging Temple), 应县木塔 (Yingxian Wooden Pagoda), 大同南站 (Datong South Station).",
+      "Hunyuan County and Ying County lie in different directions from Datong — plan the Hanging Temple and the Wooden Pagoda as separate day trips unless you charter a car.",
     ],
     sources: [
       {

@@ -35,6 +35,7 @@ describe("sitemap", () => {
     expect(paths).toContain("/attractions/yungang-grottoes");
     expect(paths).toContain("/attractions/hanging-temple");
     expect(paths).toContain("/transport/beijing-to-datong");
+    expect(paths).toContain("/transport/datong-to-hanging-temple");
     expect(paths).toContain("/travel-essentials/passport-guide");
   });
 

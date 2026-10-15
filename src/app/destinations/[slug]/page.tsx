@@ -158,6 +158,67 @@ export default async function DestinationPage({
           </dl>
         </section>
 
+        {destination.itineraries && destination.itineraries.length > 0 ? (
+          <section className="mt-10">
+            <h2 className="font-serif text-2xl font-semibold">Suggested itineraries</h2>
+            {destination.itinerary_intro ? (
+              <p className="mt-3 leading-relaxed text-muted">{destination.itinerary_intro}</p>
+            ) : null}
+            <div className="mt-4 space-y-3">
+              {destination.itineraries.map((it) => (
+                <div key={it.title} className="rounded-xl border border-border bg-surface p-5">
+                  <h3 className="font-medium text-foreground">{it.title}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted">{it.description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {destination.getting_around && destination.getting_around.length > 0 ? (
+          <section className="mt-10">
+            <h2 className="font-serif text-2xl font-semibold">Transport &amp; getting around</h2>
+            <ul className="mt-4 space-y-2">
+              {destination.getting_around.map((t) => (
+                <li key={t.href}>
+                  <Link
+                    href={t.href}
+                    className="flex items-center justify-between rounded-lg border border-border bg-surface px-4 py-3 transition-colors hover:border-accent"
+                  >
+                    <span className="min-w-0">
+                      <span className="font-medium text-foreground">{t.label}</span>
+                      {t.note ? (
+                        <span className="ml-2 text-sm text-muted">{t.note}</span>
+                      ) : null}
+                    </span>
+                    <span className="shrink-0 text-accent" aria-hidden="true">
+                      →
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
+
+        {destination.where_to_stay ? (
+          <section className="mt-10">
+            <h2 className="font-serif text-2xl font-semibold">Where to stay</h2>
+            <p className="mt-3 leading-relaxed text-muted">{destination.where_to_stay}</p>
+          </section>
+        ) : null}
+
+        {destination.practical_tips && destination.practical_tips.length > 0 ? (
+          <section className="mt-10">
+            <h2 className="font-serif text-2xl font-semibold">Practical tips</h2>
+            <ul className="mt-3 list-disc space-y-1.5 pl-5 text-muted">
+              {destination.practical_tips.map((t, i) => (
+                <li key={i}>{t}</li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
+
         <section className="mt-10">
           <h2 className="font-serif text-2xl font-semibold">Major attractions</h2>
           {attractions.length > 0 ? (

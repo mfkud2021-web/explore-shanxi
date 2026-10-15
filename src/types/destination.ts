@@ -16,6 +16,17 @@ export type PrefectureId =
   | "shuozhou"
   | "yangquan";
 
+export interface Itinerary {
+  title: string;
+  description: string;
+}
+
+export interface TransportLink {
+  label: string;
+  href: string;
+  note?: string | null;
+}
+
 export interface Destination {
   slug: string;
   name_en: string;
@@ -33,4 +44,9 @@ export interface Destination {
   sources: Source[];
   last_verified: string | null;
   verification_status: VerificationStatus;
+  itinerary_intro?: string | null;
+  itineraries?: Itinerary[];
+  getting_around?: TransportLink[];
+  where_to_stay?: string | null;
+  practical_tips?: string[];
 }

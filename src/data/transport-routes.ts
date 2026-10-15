@@ -91,6 +91,43 @@ const SHUOZHOU_YINGXIAN_REPLY: Source = {
   source_level: 1,
 };
 
+const VERIFIED_AT_V5 = "2026-10-15";
+
+const HENGSHAN_TRANSPORT: Source = {
+  source_name: "Hengshan Scenic Area Management Center (byhs.net.cn) — transport guide & scenic shuttle fare",
+  source_url: "https://www.byhs.net.cn/Travel_Guide/12.html",
+  source_checked_at: VERIFIED_AT_V5,
+  source_level: 1,
+};
+
+const HENGSHAN_CLIMBING: Source = {
+  source_name: "Hengshan Scenic Area Management Center (byhs.net.cn) — Hanging Temple climbing-ticket reservation notice (2,475/day)",
+  source_url: "https://www.byhs.net.cn/culture_detial/314.html",
+  source_checked_at: VERIFIED_AT_V5,
+  source_level: 1,
+};
+
+const HUNYUAN_GOV_NEW_RULE: Source = {
+  source_name: "Hunyuan County Government (hunyuan.gov.cn) — climbing-ticket quota split effective 2 Oct 2026",
+  source_url: "https://www.hunyuan.gov.cn/hyxrmzfz/bmdtn/202609/f65b022f2e9a4bb18187c095433594a0.shtml",
+  source_checked_at: VERIFIED_AT_V5,
+  source_level: 1,
+};
+
+const SXGOV_CLIMBING: Source = {
+  source_name: "黄河新闻网 (sxgov.cn) — Hanging Temple climbing-ticket online reservation adjustment",
+  source_url: "https://www.sxgov.cn/yaowen/content/2026-09/24/content_13692099.htm",
+  source_checked_at: VERIFIED_AT_V5,
+  source_level: 1,
+};
+
+const TRIP_HUNYUAN: Source = {
+  source_name: "Trip.com travel guide — Datong/Hunyuan transport",
+  source_url: "https://tw.trip.com/moments/detail/hunyuan-3026-149999305/",
+  source_checked_at: VERIFIED_AT_V5,
+  source_level: 3,
+};
+
 export const transportRoutes: TransportRoute[] = [
   {
     slug: "beijing-to-datong",
@@ -539,5 +576,97 @@ export const transportRoutes: TransportRoute[] = [
     sources: [LINFEN_TOURISM, QUNAR_LINFEN, LINFEN_BENDIBAO],
     last_verified: VERIFIED_AT_V44,
     verification_status: "verified",
+  },
+  {
+    slug: "datong-to-hanging-temple",
+    route_type: "last-mile",
+    from: "Datong (transport hubs)",
+    from_zh: "大同",
+    to: "Hanging Temple, Hunyuan County",
+    to_zh: "悬空寺",
+    recommended_transport:
+      "Coach from Datong to Hunyuan County, then a taxi to the Hengshan Visitor Centre and the scenic shuttle to the temple",
+    approximate_duration:
+      "≈1.5–2h by coach + ≈10–15 min taxi + ≈10–15 min shuttle (one way)",
+    departure_station: null,
+    arrival_station: null,
+    frequency:
+      "Coach roughly every 30 min (third-party, unconfirmed); visitor-centre shuttle runs continuously to ~17:30 (official, seasonal)",
+    summary:
+      "The Hanging Temple sits in Hunyuan County (浑源县), about 60–70 km southeast of Datong. Private cars cannot reach the temple gate — every visitor parks at the Hengshan Visitor Centre (恒山游客中心) and transfers to a scenic shuttle. Without your own car, the journey is a coach to Hunyuan plus a short road transfer to the visitor centre.",
+    steps: [
+      {
+        title: "Leave Datong by coach to Hunyuan County",
+        detail:
+          "Take a Datong–Hunyuan coach from a Datong bus station — sources differ on which (Datong bus station, Xinnan passenger station or Datong East bus station). The ride is about 1.5–2 hours. Confirm the departure point and fare before you set out, as no current official timetable is published here.",
+      },
+      {
+        title: "Reach the Hengshan Visitor Centre",
+        detail:
+          "From Hunyuan County town, take a taxi or ride-hail (about 10–15 minutes) to the Hengshan Visitor Centre (恒山游客中心). Private cars cannot continue to the temple gate, so this transfer is required.",
+      },
+      {
+        title: "Ride the scenic shuttle to the temple",
+        detail:
+          "At the visitor centre, buy the scenic shuttle (摆渡车) — 20 CNY per person for a same-day pass covering unlimited round trips between the visitor centre, the Hanging Temple, Yuemen Bay and Hengzong. The visitor-centre-to-temple leg is about 10–15 minutes.",
+      },
+      {
+        title: "Enter with your reservation",
+        detail:
+          "Entry costs 15 CNY and the climbing ticket (登临票) 100 CNY — you need both to climb. Climbing is capped at 2,475 tickets per day, so book ahead via the WeChat account '北岳云游' or, for foreign visitors, Trip.com.",
+      },
+    ],
+    public_transport:
+      "A Datong–Hunyuan coach (roughly every 30 minutes, about 1.5–2 hours, fare about 15–30 CNY) is the main public option — but these figures come from third-party guides and are not confirmed against an official timetable. Some guides also mention a tourist shuttle from Heyang Gate Square (和阳门广场) in the morning, but its current operation is unconfirmed. From Hunyuan town, a short taxi reaches the Hengshan Visitor Centre, then the official 20 CNY shuttle (same-day pass) covers the final leg.",
+    taxi_backup:
+      "A taxi or chartered car from Datong to the temple area takes about 1 hour 20 minutes each way. You still cannot drive to the temple gate — the car stops at the Hengshan Visitor Centre, and you take the 20 CNY shuttle for the last leg. Agree the fare in advance; it suits 2–4 people sharing or anyone short on time.",
+    return_journey: {
+      where_to_board:
+        "Return by shuttle from the Hanging Temple to the Hengshan Visitor Centre (the 20 CNY pass covers the return), then a taxi back to Hunyuan County town, then a Hunyuan–Datong coach.",
+      how_to_return:
+        "Take the shuttle back to the visitor centre, a short taxi to Hunyuan bus station, then the Hunyuan–Datong coach back to Datong.",
+      booking_requirement:
+        "No booking for the shuttle (buy on the spot). For the coach, buy at the station — but confirm the return departure times locally, as no official timetable is published here.",
+      last_departure:
+        "The last Hunyuan–Datong coach is not confirmed against an official timetable — confirm the last return when you arrive, not when you are ready to leave. The visitor-centre shuttle to the Hanging Temple runs until about 17:30 (seasonal), so plan to finish before then.",
+      fallback:
+        "If you miss the last coach, take a taxi or chartered car back to Datong (about 1 hour 20 minutes). Arrange it in advance or ask at the visitor centre.",
+      same_day_return:
+        "Realistic as a day trip from Datong — allow about 1.5–2 hours each way plus 1.5–3 hours on site. Start early and confirm the last return coach before you set out.",
+    },
+    tips: [
+      "Climbing the temple is capped at 2,475 tickets per day (since 1 April 2026, reduced each year) — reserve in advance via '北岳云游' or, for foreign visitors, Trip.com.",
+      "From 2 October 2026 the daily quota is split: 2,000 online (including 100 for Hong Kong/Macau/Taiwan and foreign visitors) and 475 on-site for eligible groups. Foreign visitors should book online via Trip.com.",
+      "Not everyone should climb: visitors over 70, over 100 kg, with vertigo or heart conditions are advised against it, and children under 6 are not allowed.",
+      "Beware of touts selling 'direct' rides at inflated prices — use the official visitor-centre shuttle.",
+      "Show the driver the Chinese names: 恒山游客中心 (visitor centre) and 悬空寺 (Hanging Temple).",
+    ],
+    attraction_slug: "hanging-temple",
+    notes: [],
+    faq: [
+      {
+        question: "Can I reach the Hanging Temple by public transport from Datong?",
+        answer:
+          "Yes, in two legs: a Datong–Hunyuan coach (about 1.5–2 hours), then a short taxi to the Hengshan Visitor Centre, then the official 20 CNY shuttle to the temple. Bus times and fares are not confirmed against an official timetable, so confirm them before you set out.",
+      },
+      {
+        question: "Why can't a taxi take me straight to the temple gate?",
+        answer:
+          "Private cars cannot reach the gate. Every visitor transfers at the Hengshan Visitor Centre (恒山游客中心) to the scenic shuttle (20 CNY same-day pass), which covers the last 10–15 minutes to the temple.",
+      },
+      {
+        question: "Do I need to book the climbing ticket in advance?",
+        answer:
+          "Yes. Climbing is limited to 2,475 tickets per day, and foreign visitors should book online via Trip.com (or the WeChat account '北岳云游'). Entry-only (15 CNY) is separate from the 100 CNY climbing ticket.",
+      },
+      {
+        question: "Can I combine the Hanging Temple with the Yingxian Wooden Pagoda in one day?",
+        answer:
+          "It is possible but tight. The Hanging Temple is in Hunyuan County and the pagoda is in Ying County, in different directions from Datong. A private car or chartered tour is the most practical way to combine them; by public transport, give each a separate day.",
+      },
+    ],
+    sources: [HENGSHAN_TRANSPORT, HENGSHAN_CLIMBING, HUNYUAN_GOV_NEW_RULE, SXGOV_CLIMBING, TRIP_HUNYUAN],
+    last_verified: VERIFIED_AT_V5,
+    verification_status: "pending",
   },
 ];
