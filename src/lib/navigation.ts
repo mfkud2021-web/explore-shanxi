@@ -7,7 +7,7 @@ export const navItems: NavItem[] = [
   { label: "Destinations", href: "/destinations" },
   { label: "Attractions", href: "/attractions" },
   { label: "Trip Planner", href: "/trip-planner" },
-  { label: "Private Driver", href: "/private-driver" },
+  { label: "Local Transport", href: "/private-driver" },
   { label: "Tickets", href: "/tickets" },
   { label: "Transport", href: "/transport" },
   { label: "Black Myth", href: "/black-myth-wukong" },
