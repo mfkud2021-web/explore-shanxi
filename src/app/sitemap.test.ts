@@ -33,9 +33,15 @@ describe("sitemap", () => {
   it("includes dynamic content pages", () => {
     expect(paths).toContain("/destinations/datong");
     expect(paths).toContain("/attractions/yungang-grottoes");
+    expect(paths).toContain("/attractions/hanging-temple");
     expect(paths).toContain("/transport/beijing-to-datong");
-    expect(paths).toContain("/tickets/hanging-temple");
     expect(paths).toContain("/travel-essentials/passport-guide");
+  });
+
+  it("excludes ticket detail pages that redirect to attraction pages", () => {
+    expect(paths).toContain("/tickets");
+    expect(paths).not.toContain("/tickets/hanging-temple");
+    expect(paths).not.toContain("/tickets/yungang-grottoes");
   });
 
   it("uses the canonical site URL for every entry", () => {

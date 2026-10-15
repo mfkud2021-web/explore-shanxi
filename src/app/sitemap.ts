@@ -50,12 +50,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const tickets: MetadataRoute.Sitemap = getAttractionSlugs().map((slug) => ({
-    url: `${base}/tickets/${slug}`,
-    changeFrequency: "weekly",
-    priority: 0.7,
-  }));
-
   const essentials: MetadataRoute.Sitemap = getTravelEssentialSlugs().map((slug) => ({
     url: `${base}/travel-essentials/${slug}`,
     changeFrequency: "monthly",
@@ -66,7 +60,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...staticPages,
     ...destinations,
     ...attractions,
-    ...tickets,
     ...transport,
     ...essentials,
   ];

@@ -86,10 +86,10 @@ export default function Home() {
                 Every price, schedule and route is marked verified or pending — we
                 never invent travel data. Need local transport?{" "}
                 <Link
-                  href="/private-driver"
+                  href="/transport"
                   className="text-accent underline underline-offset-2 hover:text-accent-hover"
                 >
-                  Ask about a private driver
+                  See our transport guides
                 </Link>
                 .
               </p>

@@ -118,11 +118,8 @@ export default function TransportPage() {
         </p>
         <p className="mt-4 leading-relaxed text-muted">
           For journeys that are not well served by rail — such as reaching the Hanging
-          Temple, Xiaoxitian or Hukou Waterfall — see our{" "}
-          <Link href="/private-driver" className="text-accent underline underline-offset-2 hover:text-accent-hover">
-            private driver inquiries
-          </Link>{" "}
-          page to ask about local transport options.
+          Temple, Xiaoxitian or Hukou Waterfall — plan a taxi or local bus for the
+          final leg, and allow extra time.
         </p>
       </section>
 
